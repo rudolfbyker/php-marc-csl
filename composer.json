@@ -1,0 +1,25 @@
+{
+  "name": "rudolfbyker/php-marc-csl",
+  "description": "description",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rudolf W Byker",
+      "email": "rudolfbyker@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "ext-json": "*",
+    "scriptotek/marc": "dev-master#efecc80bffda0f9bd8e13f2ef27a9b9241b9302f as 2.1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "RudolfByker\\PhpMarcCsl\\": "src",
+      "RudolfByker\\PhpMarcCsl\\Tests\\": "tests"
+    }
+  }
+}
