@@ -5,6 +5,12 @@ There is no official or industry standard mapping.
 We develop our mapping on our interpretation of the [MARC21 docs](https://www.loc.gov/marc/bibliographic/) and
 [CSL docs](https://docs.citationstyles.org/en/stable/specification.html).
 
+To see which MARC fields maps to which CSL variables, look at the 
+[documentation](https://rudolfbyker.github.io/php-marc-csl/classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html)
+or
+[source code](https://github.com/rudolfbyker/php-marc-csl/blob/master/src/MarcCslVariables.php)
+of the MarcCslVariables class.
+
 ## Example usage:
 
 ```php
@@ -52,3 +58,6 @@ If your data is mapped incorrectly, create an issue or PR, and provide:
 composer install
 vendor/bin/phpdoc
 ```
+
+Docs committed to the repository should be available on Github pages:
+https://github.com/rudolfbyker/php-marc-csl/deployments/activity_log?environment=github-pages
