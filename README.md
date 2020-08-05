@@ -45,3 +45,10 @@ If your data is mapped incorrectly, create an issue or PR, and provide:
 - the expected output
 - links to relevant CSL and MARC documentation
 - suggestions for how to fix it
+
+## Generating docs
+
+```shell script
+composer install
+vendor/bin/phpdoc
+```

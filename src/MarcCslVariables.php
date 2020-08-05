@@ -578,7 +578,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
       $names[RelatorTerm::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
       $names[RelatorTerm::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
       $names[RelatorTerm::AUTHOR_OF_DIALOG] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? [],
+      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? []
     );
     // Only use dubious author if there are no other authors specified.
     if (count($legit_authors)) {
@@ -599,14 +599,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
       $names[RelatorTerm::EDITOR_OF_COMPILATION] ?? [],
       $names[RelatorTerm::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
       $names[RelatorTerm::FILM_EDITOR] ?? [],
-      $names[RelatorTerm::MARKUP_EDITOR] ?? [],
+      $names[RelatorTerm::MARKUP_EDITOR] ?? []
     );
     $authors = array_merge(
       $names[RelatorTerm::AUTHOR] ?? [],
       $names[RelatorTerm::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
       $names[RelatorTerm::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
       $names[RelatorTerm::AUTHOR_OF_DIALOG] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? [],
+      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? []
     );
 
     // First try editors. If there are none, use authors.
@@ -646,7 +646,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
       $names[RelatorTerm::RADIO_DIRECTOR] ?? [],
       $names[RelatorTerm::STAGE_DIRECTOR] ?? [],
       $names[RelatorTerm::TECHNICAL_DIRECTOR] ?? [],
-      $names[RelatorTerm::TELEVISION_DIRECTOR] ?? [],
+      $names[RelatorTerm::TELEVISION_DIRECTOR] ?? []
     );
   }
 
@@ -660,7 +660,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
       $names[RelatorTerm::EDITOR_OF_COMPILATION] ?? [],
       $names[RelatorTerm::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
       $names[RelatorTerm::FILM_EDITOR] ?? [],
-      $names[RelatorTerm::MARKUP_EDITOR] ?? [],
+      $names[RelatorTerm::MARKUP_EDITOR] ?? []
     );
   }
 
