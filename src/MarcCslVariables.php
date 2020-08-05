@@ -5,20 +5,28 @@ namespace RudolfByker\PhpMarcCsl;
 use JsonSerializable;
 
 /**
- * Class MarcCslVariables.
- *
  * Wraps a MARC Record to provide Citation Style Language variables.
  *
  * Objects of this class can be serialized to CSL JSON, a.k.a. CiteProc JSON:
- *   $this->jsonSerialize();
+ * ```
+ * $obj->jsonSerialize();
+ * ```
  * OR:
- *   json_encode($this);
+ * ```
+ * json_encode($obj);
+ * ```
+ *
+ * For each CSL variable, this class has a getter.
+ * E.g. to get CSL variable `title-short`, use:
+ * ```
+ * $obj->getTitleShort();
+ * ```
  *
  * Built from the CSL 1.0.1 Specification docs, accessed 2020-07-30.
  *
- * @see https://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables
- * @see https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html
- * @see http://marcspec.github.io/MARCspec/marc-spec.html
+ * @see https://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables List of CSL variables.
+ * @see https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html CSL JSON markup specification.
+ * @see http://marcspec.github.io/MARCspec/marc-spec.html MARC-SPEC query language docs.
  */
 class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
@@ -29,46 +37,64 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the abstract of the item (e.g. the abstract of a journal article).
+   *
+   * - CSL: abstract
+   * - MARC: ?
+   *
+   * TODO: Use 520[0]$a$b, but only if first indicator is 3.
    */
   public function getAbstract(): string {
-    // TODO: Use 520[0]$a$b, but only if first indicator is 3.
     return "";
   }
 
   /**
    * Get the reader’s notes about the item content.
+   *
+   * - CSL: annote
+   * - MARC: ?
+   *
+   * TODO: Maybe use 500[0]$a ?
    */
   public function getAnnote(): string {
-    // TODO: Maybe use 500[0]$a ?
     return "";
   }
 
   /**
    * Get the archive storing the item.
+   *
+   * - CSL: archive
+   * - MARC: ?
+   *
+   * TODO: Find the correct MARC record.
+   * - 535[0]$a ?
+   * - 850[0]$a ?
+   * - 852[0]$a$b ?
    */
   public function getArchive(): string {
-    // TODO:
-    // - 535[0]$a ?
-    // - 850[0]$a ?
-    // - 852[0]$a$b ?
     return "";
   }
 
   /**
    * Get the storage location within an archive (e.g. a box and folder number).
+   *
+   * - CSL: archive-location
+   * - MARC: ?
+   *
+   * TODO: 852[0]$c ?
    */
   public function getArchiveLocation(): string {
-    // TODO:
-    // - 852[0]$c ?
     return "";
   }
 
   /**
    * Get the geographic location of the archive.
+   *
+   * - CSL: archive-place
+   * - MARC: ?
+   *
+   * TODO: 852[0]$e ?
    */
   public function getArchivePlace(): string {
-    // TODO:
-    // - 852[0]$e ?
     return "";
   }
 
@@ -76,17 +102,29 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the issuing or judicial authority.
    *
    * (e.g. “USPTO” for a patent, “Fairfax Circuit Court” for a legal case).
+   *
+   * - CSL: authority
+   * - MARC: ?
+   *
+   * TODO: Find the correct MARC record.
    */
   public function getAuthority(): string {
-    // TODO:
     return "";
   }
 
   /**
-   * Get the call number (to locate the item in a library)
+   * Get the call number (to locate the item in a library).
+   *
+   * - CSL: call-number
+   * - MARC: 082[0]$a
+   *     - 082 - Dewey Decimal Classification Number (R)
+   *         - $a - Classification number (R)
+   *
+   * TODO: Support other types of call numbers.
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd082.html
    */
   public function getCallNumber(): string {
-    // TODO: Support other types of call numbers.
     // Dewey:
     return $this->record->query('082[0]$a')->text() ?? "";
   }
@@ -95,16 +133,28 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the title of the collection holding the item.
    *
    * (e.g. the series title for a book).
+   *
+   * - CSL: collection-title
+   * - MARC:
+   *     - 490[0]$a
+   *         - 490 - Series Statement (R)
+   *             - $a - Series statement (R)
+   *     - 830[0]$a
+   *         - 830 - Series Added Entry-Uniform Title (R)
+   *             - $a - Uniform title (NR)
+   *     - 760[0]$t
+   *         - 760 - Main Series Entry (R)
+   *             - $t - Title (NR)
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd490.html
+   * @see https://www.loc.gov/marc/bibliographic/bd830.html
+   * @see https://www.loc.gov/marc/bibliographic/bd760.html
    */
   public function getCollectionTitle(): string {
-    // The series name is normally in:
-    // 490 - Series Statement (R)
-    // $a - Series statement (R)
+    // The series name is normally in 490$a.
     $seriesStatement = $this->record->query('490[0]$a')->text();
 
-    // Sometimes there is more info in:
-    // 830 - Series Added Entry-Uniform Title (R)
-    // $a - Uniform title (NR)
+    // Sometimes there is more info in 830$a.
     $seriesAddedEntryUniformTitle = $this->record->query('830[0]$a')->text();
 
     // If this is a sub-series, the title of the main series may be in 760$t.
@@ -118,6 +168,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *
    * (e.g. the book title for a book chapter, the journal title for a journal
    * article).
+   *
+   * - CSL: container-title
+   * - MARC: 773$t
+   *     - 773 - Host Item Entry (R)
+   *         - $t - Title (NR) -> title
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getContainerTitle(): string {
     return $this->getContainerInfo()['title'] ?? "";
@@ -128,6 +186,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *
    * (also accessible through the “short” form of the “container-title”
    * variable).
+   *
+   * - CSL: container-title-short
+   * - MARC: 773$p
+   *     - 773 - Host Item Entry (R)
+   *         - $p - Abbreviated title (NR)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getContainerTitleShort(): string {
     return $this->getContainerInfo()['title_short'] ?? "";
@@ -135,6 +201,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the physical (e.g. size) or temporal (e.g. running time) dimensions.
+   *
+   * - CSL: dimensions
+   * - MARC: ???
    */
   public function getDimensions(): string {
     // TODO:
@@ -143,6 +212,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the Digital Object Identifier (e.g. “10.1128/AEM.02591-07”).
+   *
+   * - CSL: doi
+   * - MARC: ???
    */
   public function getDoi(): string {
     // TODO:
@@ -153,20 +225,34 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the name of the related event.
    *
    * (e.g. the conference name when citing a conference paper).
+   *
+   * - CSL: event
+   * - MARC: 111, 611, 711 or 811
+   *     - $a - Meeting name or jurisdiction name as entry element (NR)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bdx11.html
    */
   public function getEvent(): string {
     $meetings = $this->getAllMeetings();
-    return $meetings[0]->name ?? "";
+    return $meetings[0]['name'] ?? "";
   }
 
   /**
    * Get the geographic location of the related event.
    *
    * (e.g. “Amsterdam, the Netherlands”).
+   *
+   * - CSL: event-place
+   * - MARC: 111, 611, 711 or 811
+   *     - $c - Location of meeting (R).
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bdx11.html
    */
   public function getEventPlace(): string {
     $meetings = $this->getAllMeetings();
-    $firstLocation = $meetings[0]->locations[0] ?? "";
+    $firstLocation = $meetings[0]['locations'][0] ?? "";
     return Util::trimNonWordCharacters($firstLocation) ?: "";
   }
 
@@ -175,6 +261,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *
    * (e.g. “adventure” for an adventure movie, “PhD dissertation” for a PhD
    * thesis).
+   *
+   * - CSL: genre
+   * - MARC: TODO
    */
   public function getGenre(): string {
     // TODO:
@@ -183,6 +272,13 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the International Standard Book Number.
+   *
+   * - CSL: isbn
+   * - MARC: 020[0]$a
+   *     - 020 - International Standard Book Number (R)
+   *         - $a - International Standard Book Number (NR)
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd020.html
    */
   public function getIsbn(): string {
     return $this->record->query('020[0]$a')->text() ?? "";
@@ -190,6 +286,13 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the International Standard Serial Number.
+   *
+   * - CSL: issn
+   * - MARC: 022[0]$a
+   *     - 022 - International Standard Serial Number (R)
+   *         - $a - International Standard Serial Number (NR)
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd022.html
    */
   public function getIssn(): string {
     return $this->record->query('022[0]$a')->text() ?? "";
@@ -197,6 +300,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the geographic scope of relevance (e.g. “US” for a US patent).
+   *
+   * - CSL: jurisdiction
+   * - MARC: TODO
    */
   public function getJurisdiction(): string {
     // TODO:
@@ -205,6 +311,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the keyword(s) or tag(s) attached to the item.
+   *
+   * - CSL: keyword
+   * - MARC: TODO
    */
   public function getKeyword(): string {
     // TODO:
@@ -213,6 +322,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the medium description (e.g. “CD”, “DVD”, etc.).
+   *
+   * - CSL: medium
+   * - MARC: TODO
    */
   public function getMedium(): string {
     // TODO:
@@ -223,6 +335,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the (short) inline note giving additional item details.
    *
    * (e.g. a concise summary or commentary).
+   *
+   * - CSL: note
+   * - MARC: TODO
    */
   public function getNote(): string {
     // TODO:
@@ -230,9 +345,20 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   }
 
   /**
-   * Get the original publisher.
+   * Get the name of the original publisher.
    *
    * For items that have been republished by a different publisher.
+   *
+   * - CSL: original-publisher
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $b - Name of publisher, distributor, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $b - Name of producer, publisher, distributor, manufacturer (R)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getOriginalPublisher(): string {
     $info = $this->getAllPublicationInfo();
@@ -242,6 +368,17 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the geographic location of the original publisher (e.g. “London, UK”).
+   *
+   * - CSL: original-publisher-place
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $a - Place of publication, distribution, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $a - Place of production, publication, distribution, manufacture
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getOriginalPublisherPlace(): string {
     $info = $this->getAllPublicationInfo();
@@ -253,11 +390,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the title of the original version.
    *
    * (e.g. “Война и мир”, the untranslated Russian title of “War and Peace”).
+   *
+   * - CSL: original-title
+   * - MARC: 247[0]$a$b
+   *     - 247 - Former Title (R)
+   *         - $a - Title (NR)
+   *         - $b - Remainder of title (NR)
    */
   public function getOriginalTitle(): string {
-    // 247 - Former Title (R)
-    // $a - Title (NR)
-    // $b - Remainder of title (NR)
     return $this->record->query('247[0]$a$b')->text() ?? "";
   }
 
@@ -265,6 +405,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the range of pages the item covers in a container.
    *
    * E.g. range of pages covered by journal article in journal issue.
+   *
+   * - CSL: page
+   * - MARC: 773$g OR 773$q
+   *     - 773 - Host Item Entry (R)
+   *         - $g - Related parts (R)
+   *         - $q - Enumeration and first page (NR)
+   *
+   * $g is considered before $q, since $g may contain a range of pages, but
+   * $q only contains the first page.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getPage(): string {
     return $this->getContainerInfo()['pages'] ?? "";
@@ -274,6 +426,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the first page of the range of pages the item covers in a container.
    *
    * E.g. first page of journal article in journal issue.
+   *
+   * - CSL: page-first
+   * - MARC: 773$q
+   *     - 773 - Host Item Entry (R)
+   *         - $q - Enumeration and first page (NR)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getPageFirst(): string {
     return $this->getContainerInfo()['first_page'] ?? "";
@@ -281,6 +441,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the PubMed Central reference number.
+   *
+   * - CSL: pmcid
+   * - MARC: TODO
    */
   public function getPmcid(): string {
     // TODO:
@@ -289,6 +452,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the PubMed reference number.
+   *
+   * - CSL: pmid
+   * - MARC: TODO
    */
   public function getPmid(): string {
     // TODO:
@@ -296,7 +462,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   }
 
   /**
-   * Get the publisher.
+   * Get the name of the current/latest publisher.
+   *
+   * - CSL: publisher
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $b - Name of publisher, distributor, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $b - Name of producer, publisher, distributor, manufacturer (R)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getPublisher(): string {
     $info = $this->getAllPublicationInfo();
@@ -304,7 +481,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   }
 
   /**
-   * Get the geographic location of the publisher.
+   * Get the geographic location of the current/latest publisher.
+   *
+   * - CSL: publisher-place
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $a - Place of publication, distribution, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $a - Place of production, publication, distribution, manufacture
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getPublisherPlace(): string {
     $info = $this->getAllPublicationInfo();
@@ -313,6 +501,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the resources related to the procedural history of a legal case.
+   *
+   * - CSL: references
+   * - MARC: TODO
    */
   public function getReferences(): string {
     // TODO:
@@ -321,6 +512,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the title of the item reviewed by the current item.
+   *
+   * - CSL: reviewed-title
+   * - MARC: TODO
    */
   public function getReviewedTitle(): string {
     // TODO:
@@ -329,6 +523,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the scale of e.g. a map.
+   *
+   * - CSL: scale
+   * - MARC: TODO
    */
   public function getScale(): string {
     // TODO:
@@ -339,6 +536,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the container section holding the item.
    *
    * (e.g. “politics” for a newspaper article).
+   *
+   * - CSL: section
+   * - MARC: 773
+   *     - 773 - Host Item Entry (R)
+   *         - TODO: Not sure which subfield to use for this.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getSection(): string {
     return $this->getContainerInfo()['section'] ?? "";
@@ -348,6 +553,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the source from whence the item originates.
    *
    * (e.g. a library catalog or database).
+   *
+   * - CSL: source
+   * - MARC: TODO
    */
   public function getSource(): string {
     // TODO:
@@ -356,6 +564,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the (publication) status of the item (e.g. “forthcoming”).
+   *
+   * - CSL: status
+   * - MARC: TODO
    */
   public function getStatus(): string {
     return $this->record->query('542[0]$m')->text ?? "";
@@ -363,22 +574,30 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the primary title of the item.
+   *
+   * - CSL: title
+   * - MARC: 245[0]$a$b
+   *     - 245 - Title Statement (NR)
+   *         - $a - Title (NR)
+   *         - $b - Remainder of title (NR)
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd245.html
    */
   public function getTitle(): string {
-    // 245 - Title Statement (NR)
-    // $a - Title (NR)
-    // $b - Remainder of title (NR)
     return $this->record->query('245[0]$a$b')->text() ?? "";
   }
 
   /**
    * Get the short/abbreviated form of “title”.
    *
-   * (also accessible through the “short” form of the “title” variable).
+   * - CSL: title-short
+   * - MARC: 210[0]$a
+   *     - 210 - Abbreviated Title (R)
+   *         - $a - Abbreviated title (NR)
+   *
+   * @see https://www.loc.gov/marc/bibliographic/bd210.html
    */
   public function getTitleShort(): string {
-    // 210 - Abbreviated Title (R)
-    // $a - Abbreviated title (NR)
     return $this->record->query('210[0]$a')->text() ?? "";
   }
 
@@ -386,16 +605,23 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the Uniform Resource Locator.
    *
    * (e.g. “http://aem.asm.org/cgi/content/full/74/9/2766”).
+   *
+   * - CSL: url
+   * - MARC: 856[0]$u
+   *     - 856 - Electronic Location and Access (R)
+   *         - $u - Uniform Resource Identifier (R)
+   *
+   * TODO: There are probably many other fields that may contain URLs.
    */
   public function getUrl(): string {
-    // TODO: There are probably many other fields that may contain URLs.
-    // 856 - Electronic Location and Access (R)
-    // $u - Uniform Resource Identifier (R)
     return $this->record->query('856[0]$u')->text() ?? "";
   }
 
   /**
    * Get the version of the item (e.g. “2.0.9” for a software program).
+   *
+   * - CSL: version
+   * - MARC: TODO
    */
   public function getVersion(): string {
     // TODO:
@@ -409,29 +635,40 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the chapter number.
+   *
+   * - CSL: chapter-number
+   * - MARC: 773
+   *     - 773 - Host Item Entry (R)
+   *     - TODO: ???
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getChapterNumber(): string {
     // TODO: How is this different from "issue"?
     // TODO: How is this different from "collection-number" (490$v, 830$v)?
-    return $this->getContainerInfo()['number'] ?? "";
+    //return $this->getContainerInfo()['number'] ?? "";
+    return "";
   }
 
   /**
    * Get the number identifying the collection holding the item.
    *
    * (e.g. the series number for a book).
+   *
+   * - CSL: collection-number
+   * - MARC:
+   *     - 490 - Series Statement (R)
+   *         - $v - Volume/sequential designation (R)
+   *     - 830 - Series Added Entry-Uniform Title (R)
+   *         - $v - Volume/sequential designation (NR)
+   *
    */
   public function getCollectionNumber(): string {
-    // The series number is normally in:
-    // 490 - Series Statement (R)
-    // $v - Volume/sequential designation (R)
+    // The series number is normally in 490$v.
     $seriesSeq = $this->record->query('490[0]$v')->text();
-
-    // Sometimes there is more info in:
-    // 830 - Series Added Entry-Uniform Title (R)
-    // $v - Volume/sequential designation (NR)
+    // Sometimes there is more info in 830$v.
     $seriesAddedEntrySeq = $this->record->query('830[0]$v')->text();
-
     return Util::trimNonWordCharacters($seriesSeq ?: $seriesAddedEntrySeq ?: "");
   }
 
@@ -439,13 +676,20 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the (container) edition holding the item.
    *
    * (e.g. “3” when citing a chapter in the third edition of a book).
+   *
+   * - CSL: edition
+   * - MARC: 773$b or 250[0]$a
+   *     - 773 - Host Item Entry (R)
+   *         - $b - Edition (NR)
+   *     - 250 - Edition Statement (R)
+   *         - $a - Edition statement (NR)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
+   * @see https://www.loc.gov/marc/bibliographic/bd250.html
    */
   public function getEdition(): string {
-    // 773 - Host Item Entry (R)
-    // $b - Edition (NR)
     $container_edition = $this->getContainerInfo()['edition'] ?? "";
-    // 250 - Edition Statement (R)
-    // $a - Edition statement
     $edition_statement = $this->record->query('250[0]$a')->text();
     // TODO: How will we parse these edition statements? They are normally human
     // readable strings like "2nd ed." or "Canadian edition.".
@@ -456,24 +700,39 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the (container) issue holding the item.
    *
    * (e.g. “5” when citing a journal article from journal volume 2, issue 5).
+   *
+   * - CSL: issue
+   * - MARC: 773$q OR 773$g
+   *     - 773 - Host Item Entry (R)
+   *         - $q - Enumeration and first page (NR)
+   *         - $g - Related parts (R)
+   *
+   * $q takes precedence over $g.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getIssue(): string {
-    // TODO: How is this different from "number"?
-    // TODO: How is this different from "collection-number" (490$v, 830$v)?
     return $this->getContainerInfo()['number'] ?? "";
   }
 
   /**
    * Get the number identifying the item (e.g. a report number).
+   *
+   * - CSL: number
+   * - MARC: ???
    */
   public function getNumber(): string {
     // TODO: How is this different from "issue"?
     // TODO: How is this different from "collection-number" (490$v, 830$v)?
-    return $this->getContainerInfo()['number'] ?? "";
+    return "";
   }
 
   /**
    * Get the total number of pages of the cited item.
+   *
+   * - CSL: number-of-pages
+   * - MARC: TODO
    */
   public function getNumberOfPages(): string {
     // TODO:
@@ -484,6 +743,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the total number of volumes.
    *
    * Usable for citing multi-volume books and such.
+   *
+   * - CSL: number-of-volumes
+   * - MARC: TODO
    */
   public function getNumberOfVolumes(): string {
     // TODO:
@@ -494,9 +756,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the (container) volume holding the item.
    *
    * (e.g. “2” when citing a chapter from book volume 2).
+   *
+   * - CSL: volume
+   * - MARC: 773$q OR 773$g
+   *     - 773 - Host Item Entry (R)
+   *         - $q - Enumeration and first page (NR)
+   *         - $g - Related parts (R)
+   *
+   * $q takes precedence over $g.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getVolume(): string {
-    // TODO: How is this different from "collection-number" (490$v, 830$v)?
     return $this->getContainerInfo()['volume'] ?? "";
   }
 
@@ -508,6 +780,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the date the item has been accessed.
+   *
+   * - CSL: accessed
+   * - MARC: TODO
    */
   public function getAccessed(): string {
     // TODO:
@@ -517,8 +792,11 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   /**
    * Get the ?.
    *
-   * TODO: This CSL variable has no documentation.
+   * This CSL variable has no documentation.
    * Even the CSL spec lists this as "?".
+   *
+   * - CSL: container
+   * - MARC: ???
    */
   public function getContainer(): string {
     return "";
@@ -526,17 +804,33 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the date the related event took place.
+   *
+   * - CSL: event-date
+   * - MARC: 111, 611, 711 or 811
+   *     - $d - Date of meeting or treaty signing (R).
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bdx11.html
    */
   public function getEventDate(): string {
     $meetings = $this->getAllMeetings();
-    $firstDate = $meetings[0]->dates[0] ?? "";
+    $firstDate = $meetings[0]['dates'][0] ?? "";
     return Util::trimNonWordCharacters($firstDate) ?: "";
   }
 
   /**
-   * Get the date the item was issued/published.
+   * Get the most recent date the item was issued/published.
    *
-   * Interpreting this as the most recent publication date.
+   * - CSL: issued
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $c - Date of publication, distribution, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $c - Date of production, publication, distribution, manufacture, or copyright notice (R)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getIssued(): string {
     $info = $this->getAllPublicationInfo();
@@ -544,9 +838,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   }
 
   /**
-   * Get the (issue) date of the original version.
+   * Get the first/original date the item was issued / published.
    *
-   * Interpreting this as this first publication date.
+   * - CSL: original-date
+   * - MARC:
+   *     - 260 - Publication, Distribution, etc. (Imprint) (R)
+   *         - $c - Date of publication, distribution, etc. (R)
+   *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+   *         - $c - Date of production, publication, distribution, manufacture, or copyright notice (R)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd260.html
+   * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getOriginalDate(): string {
     $info = $this->getAllPublicationInfo();
@@ -556,6 +859,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the date the item has been submitted for publication.
+   *
+   * - CSL: submitted
+   * - MARC: TODO
    */
   public function getSubmitted(): string {
     // TODO:
@@ -570,6 +876,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the authors.
+   *
+   * - CSL: author
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getAuthor(): array {
     $names = $this->getAllNames();
@@ -591,6 +910,15 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the editors of the collection holding the item.
    *
    * (e.g. the series editor for a book).
+   *
+   * - CSL: collection-editor
+   * - MARC: 800 or 810
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllSeriesNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getCollectionEditor(): array {
     $names = $this->getAllSeriesNames();
@@ -615,6 +943,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the composers (e.g. of a musical score).
+   *
+   * - CSL: composer
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getComposer(): array {
     return $this->getAllNames()[RelatorTerm::COMPOSER] ?? [];
@@ -624,6 +965,14 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * Get the authors of the container holding the item.
    *
    * (e.g. the book author for a book chapter).
+   *
+   * - CSL: container-author
+   * - MARC: 773
+   *     - 773 - Host Item Entry (R)
+   *         - $a - Main entry heading (NR)
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
+   * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getContainerAuthor(): array {
     return $this->getContainerInfo()['authors'] ?? [];
@@ -631,6 +980,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the directors (e.g. of a film).
+   *
+   * - CSL: director
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getDirector(): array {
     $names = $this->getAllNames();
@@ -652,6 +1014,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the editors.
+   *
+   * - CSL: editor
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getEditor(): array {
     $names = $this->getAllNames();
@@ -666,6 +1041,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the managing editors (“Directeur de la Publication” in French).
+   *
+   * - CSL: editorial-director
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getEditorialDirector(): array {
     // This is a wild guess, based on the French description.
@@ -674,6 +1062,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the illustrators (e.g. of a children’s book).
+   *
+   * - CSL: illustrator
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getIllustrator(): array {
     return $this->getAllNames()[RelatorTerm::ILLUSTRATOR] ?? [];
@@ -681,6 +1082,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the interviewers (e.g. of an interview).
+   *
+   * - CSL: interviewer
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getInterviewer(): array {
     return $this->getAllNames()[RelatorTerm::INTERVIEWER] ?? [];
@@ -688,6 +1102,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the original authors?
+   *
+   * - CSL: original-author
+   * - MARC: TODO
    */
   public function getOriginalAuthor(): array {
     // TODO.
@@ -696,6 +1113,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the recipients (e.g. of a letter).
+   *
+   * - CSL: recipient
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getRecipient(): array {
     return $this->getAllNames()[RelatorTerm::ADDRESSEE] ?? [];
@@ -703,6 +1133,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the authors of the item reviewed by the current item.
+   *
+   * - CSL: reviewed-author
+   * - MARC: TODO
    */
   public function getReviewedAuthor(): array {
     // TODO.
@@ -711,6 +1144,19 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /**
    * Get the translators.
+   *
+   * - CSL: translator
+   * - MARC: 100, 110, 600, 610, 700, 710 or 720.
+   *
+   * See `getAllNamesNotMemoized` and `extractNames` for more info on the
+   * specific MARC subfields. In general, the main author should be in 100$a$b.
+   *
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::extractNames()
+   * @see https://www.loc.gov/marc/bibliographic/bdx00.html
+   * @see https://www.loc.gov/marc/bibliographic/bdx10.html
+   * @see https://www.loc.gov/marc/bibliographic/bd720.html
+   * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getTranslator(): array {
     return $this->getAllNames()[RelatorTerm::TRANSLATOR] ?? [];

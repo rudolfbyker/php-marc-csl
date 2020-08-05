@@ -52,7 +52,7 @@
 <text text-anchor="middle" x="83.594" y="-460.3" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">TestCase</text>
 </g>
 <!-- \\RudolfByker\\PhpMarcCsl\\Tests\\MarcCslVariablesTest&#45;&gt;TestCase -->
-<g id="edge3" class="edge">
+<g id="edge1" class="edge">
 <title>\\RudolfByker\\PhpMarcCsl\\Tests\\MarcCslVariablesTest&#45;&gt;TestCase</title>
 <path fill="none" stroke="#000000" d="M271.8829,-338.2377C231.7911,-365.0159 157.1877,-414.8451 114.9206,-443.0763"/>
 <polygon fill="none" stroke="#000000" points="112.7878,-440.2919 106.4161,-448.7566 116.6758,-446.1128 112.7878,-440.2919"/>
@@ -81,36 +81,23 @@
 <path fill="none" stroke="#000000" d="M250.015,-220.0322C237.4748,-224.0325 224.8309,-230.0246 215.188,-239 159.4277,-290.9004 193.5697,-334.7019 151.188,-398 140.4575,-414.0263 125.3225,-429.2555 112.0937,-441.0382"/>
 <polygon fill="none" stroke="#000000" points="109.4302,-438.7146 104.1597,-447.9055 114.0113,-444.0074 109.4302,-438.7146"/>
 </g>
-<!-- \\RudolfByker\\PhpMarcCsl\\Util -->
-<g id="node4" class="node">
-<title>\\RudolfByker\\PhpMarcCsl\\Util</title>
-<polygon fill="none" stroke="#000000" points="326.188,-176 272.188,-176 272.188,-140 326.188,-140 326.188,-176"/>
-<text text-anchor="middle" x="299.188" y="-155.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">Util</text>
-</g>
-<!-- \\RudolfByker\\PhpMarcCsl\\RelatorTerm -->
-<g id="node5" class="node">
-<title>\\RudolfByker\\PhpMarcCsl\\RelatorTerm</title>
-<polygon fill="none" stroke="#000000" points="344.688,-122 253.688,-122 253.688,-86 344.688,-86 344.688,-122"/>
-<text text-anchor="start" x="265.188" y="-107.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">«abstract»</text>
-<text text-anchor="start" x="261.688" y="-95.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">RelatorTerm</text>
-</g>
 <!-- \\RudolfByker\\PhpMarcCsl\\MarcGrok -->
-<g id="node6" class="node">
+<g id="node4" class="node">
 <title>\\RudolfByker\\PhpMarcCsl\\MarcGrok</title>
-<polygon fill="none" stroke="#000000" points="119.094,-68 48.094,-68 48.094,-32 119.094,-32 119.094,-68"/>
-<text text-anchor="middle" x="83.594" y="-47.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">MarcGrok</text>
+<polygon fill="none" stroke="#000000" points="119.094,-176 48.094,-176 48.094,-140 119.094,-140 119.094,-176"/>
+<text text-anchor="middle" x="83.594" y="-155.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">MarcGrok</text>
 </g>
 <!-- \\RudolfByker\\PhpMarcCsl\\MarcCslVariables -->
-<g id="node7" class="node">
+<g id="node5" class="node">
 <title>\\RudolfByker\\PhpMarcCsl\\MarcCslVariables</title>
-<polygon fill="none" stroke="#000000" points="361.688,-68 236.688,-68 236.688,-32 361.688,-32 361.688,-68"/>
-<text text-anchor="middle" x="299.188" y="-47.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">MarcCslVariables</text>
+<polygon fill="none" stroke="#000000" points="361.688,-176 236.688,-176 236.688,-140 361.688,-140 361.688,-176"/>
+<text text-anchor="middle" x="299.188" y="-155.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">MarcCslVariables</text>
 </g>
 <!-- \\RudolfByker\\PhpMarcCsl\\MarcCslVariables&#45;&gt;\\RudolfByker\\PhpMarcCsl\\MarcGrok -->
-<g id="edge1" class="edge">
+<g id="edge2" class="edge">
 <title>\\RudolfByker\\PhpMarcCsl\\MarcCslVariables&#45;&gt;\\RudolfByker\\PhpMarcCsl\\MarcGrok</title>
-<path fill="none" stroke="#000000" d="M236.5397,-50C202.2482,-50 160.5167,-50 129.3131,-50"/>
-<polygon fill="none" stroke="#000000" points="129.1605,-46.5001 119.1605,-50 129.1605,-53.5001 129.1605,-46.5001"/>
+<path fill="none" stroke="#000000" d="M236.5397,-158C202.2482,-158 160.5167,-158 129.3131,-158"/>
+<polygon fill="none" stroke="#000000" points="129.1605,-154.5001 119.1605,-158 129.1605,-161.5001 129.1605,-154.5001"/>
 </g>
 <!-- JsonSerializable -->
 <g id="node9" class="node">
@@ -119,10 +106,23 @@
 <text text-anchor="middle" x="83.594" y="-560.3" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">JsonSerializable</text>
 </g>
 <!-- \\RudolfByker\\PhpMarcCsl\\MarcCslVariables&#45;&gt;JsonSerializable -->
-<g id="edge2" class="edge">
+<g id="edge3" class="edge">
 <title>\\RudolfByker\\PhpMarcCsl\\MarcCslVariables&#45;&gt;JsonSerializable</title>
-<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M236.4729,-61.3022C228.3808,-65.1258 220.9293,-70.2197 215.188,-77 88.3407,-226.8036 252.0536,-345.6032 151.188,-514 144.5002,-525.1653 134.2712,-534.6185 123.7791,-542.1977"/>
-<polygon fill="none" stroke="#000000" points="121.7026,-539.3766 115.3709,-547.8712 125.618,-545.1792 121.7026,-539.3766"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M236.4109,-167.4028C228.4297,-170.8981 221.0267,-175.6244 215.188,-182 113.6987,-292.8226 231.2871,-386.855 151.188,-514 144.1893,-525.1094 133.7633,-534.585 123.1827,-542.2032"/>
+<polygon fill="none" stroke="#000000" points="121.0574,-539.415 114.7267,-547.9105 124.9735,-545.2172 121.0574,-539.415"/>
+</g>
+<!-- \\RudolfByker\\PhpMarcCsl\\RelatorTerm -->
+<g id="node6" class="node">
+<title>\\RudolfByker\\PhpMarcCsl\\RelatorTerm</title>
+<polygon fill="none" stroke="#000000" points="344.688,-122 253.688,-122 253.688,-86 344.688,-86 344.688,-122"/>
+<text text-anchor="start" x="265.188" y="-107.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">«abstract»</text>
+<text text-anchor="start" x="261.688" y="-95.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">RelatorTerm</text>
+</g>
+<!-- \\RudolfByker\\PhpMarcCsl\\Util -->
+<g id="node7" class="node">
+<title>\\RudolfByker\\PhpMarcCsl\\Util</title>
+<polygon fill="none" stroke="#000000" points="326.188,-68 272.188,-68 272.188,-32 326.188,-32 326.188,-68"/>
+<text text-anchor="middle" x="299.188" y="-47.2" font-family="Courier,monospace" font-size="11.00" fill="#000000">Util</text>
 </g>
 </g>
 </svg>

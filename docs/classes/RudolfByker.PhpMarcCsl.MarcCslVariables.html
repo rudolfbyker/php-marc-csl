@@ -119,7 +119,7 @@
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">39</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">29</span>
                                 </a>
                             </li>
                             <li>
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-135403231"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1826683824"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-135403231" class="accordion-body collapse in">
+            <div id="namespace-1826683824" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-749426396"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1648613516"></a>
                                 <a href="../namespaces/RudolfByker.html" style="margin-left: 30px; padding-left: 0">RudolfByker</a>
             </div>
-            <div id="namespace-749426396" class="accordion-body collapse ">
+            <div id="namespace-1648613516" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-872141646"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1385721572"></a>
                                 <a href="../namespaces/RudolfByker.PhpMarcCsl.html" style="margin-left: 30px; padding-left: 0">PhpMarcCsl</a>
             </div>
-            <div id="namespace-872141646" class="accordion-body collapse ">
+            <div id="namespace-1385721572" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-351510169"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1598275286"></a>
                                 <a href="../namespaces/RudolfByker.PhpMarcCsl.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
             </div>
-            <div id="namespace-351510169" class="accordion-body collapse ">
+            <div id="namespace-1598275286" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -228,12 +228,14 @@
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
                     <h1><small>\RudolfByker\PhpMarcCsl</small>MarcCslVariables</h1>
-                    <p><em>Class MarcCslVariables.</em></p>
-                    <p>Wraps a MARC Record to provide Citation Style Language variables.</p>
-<p>Objects of this class can be serialized to CSL JSON, a.k.a. CiteProc JSON:
-$this-&gt;jsonSerialize();
-OR:
-json_encode($this);</p>
+                    <p><em>Wraps a MARC Record to provide Citation Style Language variables.</em></p>
+                    <p>Objects of this class can be serialized to CSL JSON, a.k.a. CiteProc JSON:</p>
+<pre><code>$obj-&gt;jsonSerialize();</code></pre>
+<p>OR:</p>
+<pre><code>json_encode($obj);</code></pre>
+<p>For each CSL variable, this class has a getter.
+E.g. to get CSL variable <code>title-short</code>, use:</p>
+<pre><code>$obj-&gt;getTitleShort();</code></pre>
 <p>Built from the CSL 1.0.1 Specification docs, accessed 2020-07-30.</p>
                     
                                         
@@ -338,7 +340,7 @@ json_encode($this);</p>
                         </section>
                         <section class="row-fluid protected">
                             <section class="span4">
-                                                                    <em>No protected methods found</em>
+                                                                    <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames" class="">extractNames()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#property_record" class="">$record</a><br />
@@ -349,7 +351,6 @@ json_encode($this);</p>
                         </section>
                         <section class="row-fluid private">
                             <section class="span4">
-                                                                    <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames" class="">extractNames()</a><br />
                                                                     <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized" class="">getAllNamesNotMemoized()</a><br />
                                                                     <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllSeriesNamesNotMemoized" class="">getAllSeriesNamesNotMemoized()</a><br />
                                                                     <a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllMeetingsNotMemoized" class="">getAllMeetingsNotMemoized()</a><br />
@@ -390,9 +391,9 @@ json_encode($this);</p>
                         
                         
                                                                             <dt>See also</dt>
-                                                                                        <dd><a href="https://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables"><span class="namespace-wrapper">https://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables</span></a></dd>
-                                                            <dd><a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html"><span class="namespace-wrapper">https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html</span></a></dd>
-                                                            <dd><a href="http://marcspec.github.io/MARCspec/marc-spec.html"><span class="namespace-wrapper">http://marcspec.github.io/MARCspec/marc-spec.html</span></a></dd>
+                                                                                        <dd><a href="https://docs.citationstyles.org/en/stable/specification.html#appendix-iv-variables"><span class="namespace-wrapper">List of CSL variables.</span></a></dd>
+                                                            <dd><a href="https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html"><span class="namespace-wrapper">CSL JSON markup specification.</span></a></dd>
+                                                            <dd><a href="http://marcspec.github.io/MARCspec/marc-spec.html"><span class="namespace-wrapper">MARC-SPEC query language docs.</span></a></dd>
                                                                             
                                                                         </dl>
                     <h2>Tags</h2>
@@ -649,8 +650,7 @@ json_encode($this);</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllNames() : array</pre>
                 <p><em>Get all personal, corporate and uncontrolled names.</em></p>
-                <p>Excludes meeting names and series names.
-Memoized.</p>
+                <p>Memoized. See getAllNamesNotMemoized for details.</p>
 
                 
                 
@@ -665,7 +665,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -681,8 +683,7 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllSeriesNames() : array</pre>
                 <p><em>Get all series names.</em></p>
-                <p>Excludes meeting names.
-Memoized.</p>
+                <p>Memoized. See getAllSeriesNamesNotMemoized for details.</p>
 
                 
                 
@@ -697,7 +698,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllSeriesNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllSeriesNamesNotMemoized()</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -713,7 +716,7 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllMeetings() : array</pre>
                 <p><em>Get all meetings.</em></p>
-                <p>Memoized.</p>
+                <p>Memoized. See getAllMeetingsNotMemoized for details.</p>
 
                 
                 
@@ -728,7 +731,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllMeetingsNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -744,7 +749,7 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getContainerInfo() : array</pre>
                 <p><em>Get all container (parent record) info.</em></p>
-                <p>Not memoized.</p>
+                <p>Memoized. See getContainerInfoNotMemoized for more info.</p>
 
                 
                 
@@ -759,7 +764,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -775,8 +782,7 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllPublicationInfo() : array</pre>
                 <p><em>Get all info about publishers, etc.</em></p>
-                <p>Memoized.</p>
-<p>Info comes from fields 260 and 264.</p>
+                <p>Memoized. See getAllPublicationInfoNotMemoized for details.</p>
 
                 
                 
@@ -791,7 +797,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -807,7 +815,11 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAbstract() </pre>
                 <p><em>Get the abstract of the item (e.g. the abstract of a journal article).</em></p>
-                
+                <ul>
+<li>CSL: abstract</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: Use 520[0]$a$b, but only if first indicator is 3.</p>
 
                 
                 
@@ -835,7 +847,11 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAnnote() </pre>
                 <p><em>Get the reader’s notes about the item content.</em></p>
-                
+                <ul>
+<li>CSL: annote</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: Maybe use 500[0]$a ?</p>
 
                 
                 
@@ -863,7 +879,16 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getArchive() </pre>
                 <p><em>Get the archive storing the item.</em></p>
-                
+                <ul>
+<li>CSL: archive</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: Find the correct MARC record.</p>
+<ul>
+<li>535[0]$a ?</li>
+<li>850[0]$a ?</li>
+<li>852[0]$a$b ?</li>
+</ul>
 
                 
                 
@@ -891,7 +916,11 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getArchiveLocation() </pre>
                 <p><em>Get the storage location within an archive (e.g. a box and folder number).</em></p>
-                
+                <ul>
+<li>CSL: archive-location</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: 852[0]$c ?</p>
 
                 
                 
@@ -919,7 +948,11 @@ Memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getArchivePlace() </pre>
                 <p><em>Get the geographic location of the archive.</em></p>
-                
+                <ul>
+<li>CSL: archive-place</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: 852[0]$e ?</p>
 
                 
                 
@@ -948,6 +981,11 @@ Memoized.</p>
                 <pre class="signature" style="margin-right: 54px;">getAuthority() </pre>
                 <p><em>Get the issuing or judicial authority.</em></p>
                 <p>(e.g. “USPTO” for a patent, “Fairfax Circuit Court” for a legal case).</p>
+<ul>
+<li>CSL: authority</li>
+<li>MARC: ?</li>
+</ul>
+<p>TODO: Find the correct MARC record.</p>
 
                 
                 
@@ -974,8 +1012,18 @@ Memoized.</p>
                 <h3 class="public ">getCallNumber()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getCallNumber() </pre>
-                <p><em>Get the call number (to locate the item in a library)</em></p>
-                
+                <p><em>Get the call number (to locate the item in a library).</em></p>
+                <ul>
+<li>CSL: call-number</li>
+<li>MARC: 082[0]$a
+<ul>
+<li>082 - Dewey Decimal Classification Number (R)
+<ul>
+<li>$a - Classification number (R)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>TODO: Support other types of call numbers.</p>
 
                 
                 
@@ -987,7 +1035,9 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd082.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd082.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1004,6 +1054,33 @@ Memoized.</p>
                 <pre class="signature" style="margin-right: 54px;">getCollectionTitle() </pre>
                 <p><em>Get the title of the collection holding the item.</em></p>
                 <p>(e.g. the series title for a book).</p>
+<ul>
+<li>CSL: collection-title</li>
+<li>MARC:
+<ul>
+<li>490[0]$a
+<ul>
+<li>490 - Series Statement (R)
+<ul>
+<li>$a - Series statement (R)</li>
+</ul></li>
+</ul></li>
+<li>830[0]$a
+<ul>
+<li>830 - Series Added Entry-Uniform Title (R)
+<ul>
+<li>$a - Uniform title (NR)</li>
+</ul></li>
+</ul></li>
+<li>760[0]$t
+<ul>
+<li>760 - Main Series Entry (R)
+<ul>
+<li>$t - Title (NR)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1015,7 +1092,11 @@ Memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd490.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd490.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd830.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd830.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd760.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd760.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1033,6 +1114,16 @@ Memoized.</p>
                 <p><em>Get the title of the container holding the item.</em></p>
                 <p>(e.g. the book title for a book chapter, the journal title for a journal
 article).</p>
+<ul>
+<li>CSL: container-title</li>
+<li>MARC: 773$t
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$t - Title (NR) -&gt; title</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1044,7 +1135,10 @@ article).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1062,6 +1156,16 @@ article).</p>
                 <p><em>Get the short/abbreviated form of “container-title”.</em></p>
                 <p>(also accessible through the “short” form of the “container-title”
 variable).</p>
+<ul>
+<li>CSL: container-title-short</li>
+<li>MARC: 773$p
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$p - Abbreviated title (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1073,7 +1177,10 @@ variable).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1089,7 +1196,10 @@ variable).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getDimensions() </pre>
                 <p><em>Get the physical (e.g. size) or temporal (e.g. running time) dimensions.</em></p>
-                
+                <ul>
+<li>CSL: dimensions</li>
+<li>MARC: ???</li>
+</ul>
 
                 
                 
@@ -1117,7 +1227,10 @@ variable).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getDoi() </pre>
                 <p><em>Get the Digital Object Identifier (e.g. “10.1128/AEM.02591-07”).</em></p>
-                
+                <ul>
+<li>CSL: doi</li>
+<li>MARC: ???</li>
+</ul>
 
                 
                 
@@ -1146,6 +1259,13 @@ variable).</p>
                 <pre class="signature" style="margin-right: 54px;">getEvent() </pre>
                 <p><em>Get the name of the related event.</em></p>
                 <p>(e.g. the conference name when citing a conference paper).</p>
+<ul>
+<li>CSL: event</li>
+<li>MARC: 111, 611, 711 or 811
+<ul>
+<li>$a - Meeting name or jurisdiction name as entry element (NR)</li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1157,7 +1277,10 @@ variable).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllMeetingsNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx11.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx11.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1174,6 +1297,13 @@ variable).</p>
                 <pre class="signature" style="margin-right: 54px;">getEventPlace() </pre>
                 <p><em>Get the geographic location of the related event.</em></p>
                 <p>(e.g. “Amsterdam, the Netherlands”).</p>
+<ul>
+<li>CSL: event-place</li>
+<li>MARC: 111, 611, 711 or 811
+<ul>
+<li>$c - Location of meeting (R).</li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1185,7 +1315,10 @@ variable).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllMeetingsNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx11.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx11.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1203,6 +1336,10 @@ variable).</p>
                 <p><em>Get the class, type or genre of the item.</em></p>
                 <p>(e.g. “adventure” for an adventure movie, “PhD dissertation” for a PhD
 thesis).</p>
+<ul>
+<li>CSL: genre</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1230,7 +1367,16 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getIsbn() </pre>
                 <p><em>Get the International Standard Book Number.</em></p>
-                
+                <ul>
+<li>CSL: isbn</li>
+<li>MARC: 020[0]$a
+<ul>
+<li>020 - International Standard Book Number (R)
+<ul>
+<li>$a - International Standard Book Number (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1242,7 +1388,9 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd020.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd020.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1258,7 +1406,16 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getIssn() </pre>
                 <p><em>Get the International Standard Serial Number.</em></p>
-                
+                <ul>
+<li>CSL: issn</li>
+<li>MARC: 022[0]$a
+<ul>
+<li>022 - International Standard Serial Number (R)
+<ul>
+<li>$a - International Standard Serial Number (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1270,7 +1427,9 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd022.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd022.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1286,7 +1445,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getJurisdiction() </pre>
                 <p><em>Get the geographic scope of relevance (e.g. “US” for a US patent).</em></p>
-                
+                <ul>
+<li>CSL: jurisdiction</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1314,7 +1476,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getKeyword() </pre>
                 <p><em>Get the keyword(s) or tag(s) attached to the item.</em></p>
-                
+                <ul>
+<li>CSL: keyword</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1342,7 +1507,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getMedium() </pre>
                 <p><em>Get the medium description (e.g. “CD”, “DVD”, etc.).</em></p>
-                
+                <ul>
+<li>CSL: medium</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1371,6 +1539,10 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getNote() </pre>
                 <p><em>Get the (short) inline note giving additional item details.</em></p>
                 <p>(e.g. a concise summary or commentary).</p>
+<ul>
+<li>CSL: note</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1397,8 +1569,22 @@ thesis).</p>
                 <h3 class="public ">getOriginalPublisher()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getOriginalPublisher() </pre>
-                <p><em>Get the original publisher.</em></p>
+                <p><em>Get the name of the original publisher.</em></p>
                 <p>For items that have been republished by a different publisher.</p>
+<ul>
+<li>CSL: original-publisher</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$b - Name of publisher, distributor, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$b - Name of producer, publisher, distributor, manufacturer (R)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1410,7 +1596,11 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1426,7 +1616,20 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getOriginalPublisherPlace() </pre>
                 <p><em>Get the geographic location of the original publisher (e.g. “London, UK”).</em></p>
-                
+                <ul>
+<li>CSL: original-publisher-place</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$a - Place of publication, distribution, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$a - Place of production, publication, distribution, manufacture</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1438,7 +1641,11 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1455,6 +1662,17 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getOriginalTitle() </pre>
                 <p><em>Get the title of the original version.</em></p>
                 <p>(e.g. “Война и мир”, the untranslated Russian title of “War and Peace”).</p>
+<ul>
+<li>CSL: original-title</li>
+<li>MARC: 247[0]$a$b
+<ul>
+<li>247 - Former Title (R)
+<ul>
+<li>$a - Title (NR)</li>
+<li>$b - Remainder of title (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1483,6 +1701,19 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getPage() </pre>
                 <p><em>Get the range of pages the item covers in a container.</em></p>
                 <p>E.g. range of pages covered by journal article in journal issue.</p>
+<ul>
+<li>CSL: page</li>
+<li>MARC: 773$g OR 773$q
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$g - Related parts (R)</li>
+<li>$q - Enumeration and first page (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>$g is considered before $q, since $g may contain a range of pages, but
+$q only contains the first page.</p>
 
                 
                 
@@ -1494,7 +1725,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1511,6 +1745,16 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getPageFirst() </pre>
                 <p><em>Get the first page of the range of pages the item covers in a container.</em></p>
                 <p>E.g. first page of journal article in journal issue.</p>
+<ul>
+<li>CSL: page-first</li>
+<li>MARC: 773$q
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$q - Enumeration and first page (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1522,7 +1766,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1538,7 +1785,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getPmcid() </pre>
                 <p><em>Get the PubMed Central reference number.</em></p>
-                
+                <ul>
+<li>CSL: pmcid</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1566,7 +1816,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getPmid() </pre>
                 <p><em>Get the PubMed reference number.</em></p>
-                
+                <ul>
+<li>CSL: pmid</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1593,8 +1846,21 @@ thesis).</p>
                 <h3 class="public ">getPublisher()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getPublisher() </pre>
-                <p><em>Get the publisher.</em></p>
-                
+                <p><em>Get the name of the current/latest publisher.</em></p>
+                <ul>
+<li>CSL: publisher</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$b - Name of publisher, distributor, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$b - Name of producer, publisher, distributor, manufacturer (R)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1606,7 +1872,11 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1621,8 +1891,21 @@ thesis).</p>
                 <h3 class="public ">getPublisherPlace()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getPublisherPlace() </pre>
-                <p><em>Get the geographic location of the publisher.</em></p>
-                
+                <p><em>Get the geographic location of the current/latest publisher.</em></p>
+                <ul>
+<li>CSL: publisher-place</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$a - Place of publication, distribution, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$a - Place of production, publication, distribution, manufacture</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1634,7 +1917,11 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1650,7 +1937,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getReferences() </pre>
                 <p><em>Get the resources related to the procedural history of a legal case.</em></p>
-                
+                <ul>
+<li>CSL: references</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1678,7 +1968,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getReviewedTitle() </pre>
                 <p><em>Get the title of the item reviewed by the current item.</em></p>
-                
+                <ul>
+<li>CSL: reviewed-title</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1706,7 +1999,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getScale() </pre>
                 <p><em>Get the scale of e.g. a map.</em></p>
-                
+                <ul>
+<li>CSL: scale</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1735,6 +2031,16 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getSection() </pre>
                 <p><em>Get the container section holding the item.</em></p>
                 <p>(e.g. “politics” for a newspaper article).</p>
+<ul>
+<li>CSL: section</li>
+<li>MARC: 773
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>TODO: Not sure which subfield to use for this.</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1746,7 +2052,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1763,6 +2072,10 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getSource() </pre>
                 <p><em>Get the source from whence the item originates.</em></p>
                 <p>(e.g. a library catalog or database).</p>
+<ul>
+<li>CSL: source</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1790,7 +2103,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getStatus() </pre>
                 <p><em>Get the (publication) status of the item (e.g. “forthcoming”).</em></p>
-                
+                <ul>
+<li>CSL: status</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1818,7 +2134,17 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getTitle() </pre>
                 <p><em>Get the primary title of the item.</em></p>
-                
+                <ul>
+<li>CSL: title</li>
+<li>MARC: 245[0]$a$b
+<ul>
+<li>245 - Title Statement (NR)
+<ul>
+<li>$a - Title (NR)</li>
+<li>$b - Remainder of title (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1830,7 +2156,9 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd245.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd245.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1846,7 +2174,16 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getTitleShort() </pre>
                 <p><em>Get the short/abbreviated form of “title”.</em></p>
-                <p>(also accessible through the “short” form of the “title” variable).</p>
+                <ul>
+<li>CSL: title-short</li>
+<li>MARC: 210[0]$a
+<ul>
+<li>210 - Abbreviated Title (R)
+<ul>
+<li>$a - Abbreviated title (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1858,7 +2195,9 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd210.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd210.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1875,6 +2214,17 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getUrl() </pre>
                 <p><em>Get the Uniform Resource Locator.</em></p>
                 <p>(e.g. “<a href="http://aem.asm.org/cgi/content/full/74/9/2766">http://aem.asm.org/cgi/content/full/74/9/2766</a>”).</p>
+<ul>
+<li>CSL: url</li>
+<li>MARC: 856[0]$u
+<ul>
+<li>856 - Electronic Location and Access (R)
+<ul>
+<li>$u - Uniform Resource Identifier (R)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>TODO: There are probably many other fields that may contain URLs.</p>
 
                 
                 
@@ -1902,7 +2252,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getVersion() </pre>
                 <p><em>Get the version of the item (e.g. “2.0.9” for a software program).</em></p>
-                
+                <ul>
+<li>CSL: version</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -1930,7 +2283,14 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getChapterNumber() </pre>
                 <p><em>Get the chapter number.</em></p>
-                
+                <ul>
+<li>CSL: chapter-number</li>
+<li>MARC: 773
+<ul>
+<li>773 - Host Item Entry (R)</li>
+<li>TODO: ???</li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1942,7 +2302,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1959,6 +2322,20 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getCollectionNumber() </pre>
                 <p><em>Get the number identifying the collection holding the item.</em></p>
                 <p>(e.g. the series number for a book).</p>
+<ul>
+<li>CSL: collection-number</li>
+<li>MARC:
+<ul>
+<li>490 - Series Statement (R)
+<ul>
+<li>$v - Volume/sequential designation (R)</li>
+</ul></li>
+<li>830 - Series Added Entry-Uniform Title (R)
+<ul>
+<li>$v - Volume/sequential designation (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1987,6 +2364,20 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getEdition() </pre>
                 <p><em>Get the (container) edition holding the item.</em></p>
                 <p>(e.g. “3” when citing a chapter in the third edition of a book).</p>
+<ul>
+<li>CSL: edition</li>
+<li>MARC: 773$b or 250[0]$a
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$b - Edition (NR)</li>
+</ul></li>
+<li>250 - Edition Statement (R)
+<ul>
+<li>$a - Edition statement (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -1998,7 +2389,11 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd250.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd250.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2015,6 +2410,18 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getIssue() </pre>
                 <p><em>Get the (container) issue holding the item.</em></p>
                 <p>(e.g. “5” when citing a journal article from journal volume 2, issue 5).</p>
+<ul>
+<li>CSL: issue</li>
+<li>MARC: 773$q OR 773$g
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$q - Enumeration and first page (NR)</li>
+<li>$g - Related parts (R)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>$q takes precedence over $g.</p>
 
                 
                 
@@ -2026,7 +2433,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2042,7 +2452,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getNumber() </pre>
                 <p><em>Get the number identifying the item (e.g. a report number).</em></p>
-                
+                <ul>
+<li>CSL: number</li>
+<li>MARC: ???</li>
+</ul>
 
                 
                 
@@ -2070,7 +2483,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getNumberOfPages() </pre>
                 <p><em>Get the total number of pages of the cited item.</em></p>
-                
+                <ul>
+<li>CSL: number-of-pages</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2099,6 +2515,10 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getNumberOfVolumes() </pre>
                 <p><em>Get the total number of volumes.</em></p>
                 <p>Usable for citing multi-volume books and such.</p>
+<ul>
+<li>CSL: number-of-volumes</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2127,6 +2547,18 @@ thesis).</p>
                 <pre class="signature" style="margin-right: 54px;">getVolume() </pre>
                 <p><em>Get the (container) volume holding the item.</em></p>
                 <p>(e.g. “2” when citing a chapter from book volume 2).</p>
+<ul>
+<li>CSL: volume</li>
+<li>MARC: 773$q OR 773$g
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$q - Enumeration and first page (NR)</li>
+<li>$g - Related parts (R)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>$q takes precedence over $g.</p>
 
                 
                 
@@ -2138,7 +2570,10 @@ thesis).</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2154,7 +2589,10 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAccessed() </pre>
                 <p><em>Get the date the item has been accessed.</em></p>
-                
+                <ul>
+<li>CSL: accessed</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2182,8 +2620,12 @@ thesis).</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getContainer() </pre>
                 <p><em>Get the ?.</em></p>
-                <p>TODO: This CSL variable has no documentation.
+                <p>This CSL variable has no documentation.
 Even the CSL spec lists this as &quot;?&quot;.</p>
+<ul>
+<li>CSL: container</li>
+<li>MARC: ???</li>
+</ul>
 
                 
                 
@@ -2211,7 +2653,13 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getEventDate() </pre>
                 <p><em>Get the date the related event took place.</em></p>
-                
+                <ul>
+<li>CSL: event-date</li>
+<li>MARC: 111, 611, 711 or 811
+<ul>
+<li>$d - Date of meeting or treaty signing (R).</li>
+</ul></li>
+</ul>
 
                 
                 
@@ -2223,7 +2671,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllMeetingsNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx11.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx11.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2238,8 +2689,21 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <h3 class="public ">getIssued()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getIssued() </pre>
-                <p><em>Get the date the item was issued/published.</em></p>
-                <p>Interpreting this as the most recent publication date.</p>
+                <p><em>Get the most recent date the item was issued/published.</em></p>
+                <ul>
+<li>CSL: issued</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$c - Date of publication, distribution, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$c - Date of production, publication, distribution, manufacture, or copyright notice (R)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -2251,7 +2715,11 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2266,8 +2734,21 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <h3 class="public ">getOriginalDate()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getOriginalDate() </pre>
-                <p><em>Get the (issue) date of the original version.</em></p>
-                <p>Interpreting this as this first publication date.</p>
+                <p><em>Get the first/original date the item was issued / published.</em></p>
+                <ul>
+<li>CSL: original-date</li>
+<li>MARC:
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$c - Date of publication, distribution, etc. (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$c - Date of production, publication, distribution, manufacture, or copyright notice (R)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -2279,7 +2760,11 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllPublicationInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2295,7 +2780,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getSubmitted() </pre>
                 <p><em>Get the date the item has been submitted for publication.</em></p>
-                
+                <ul>
+<li>CSL: submitted</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2323,7 +2811,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAuthor() </pre>
                 <p><em>Get the authors.</em></p>
-                
+                <ul>
+<li>CSL: author</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2335,7 +2828,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2352,6 +2852,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <pre class="signature" style="margin-right: 54px;">getCollectionEditor() </pre>
                 <p><em>Get the editors of the collection holding the item.</em></p>
                 <p>(e.g. the series editor for a book).</p>
+<ul>
+<li>CSL: collection-editor</li>
+<li>MARC: 800 or 810</li>
+</ul>
 
                 
                 
@@ -2363,7 +2867,13 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllSeriesNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllSeriesNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2379,7 +2889,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getComposer() </pre>
                 <p><em>Get the composers (e.g. of a musical score).</em></p>
-                
+                <ul>
+<li>CSL: composer</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2391,7 +2906,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2408,6 +2930,16 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <pre class="signature" style="margin-right: 54px;">getContainerAuthor() </pre>
                 <p><em>Get the authors of the container holding the item.</em></p>
                 <p>(e.g. the book author for a book chapter).</p>
+<ul>
+<li>CSL: container-author</li>
+<li>MARC: 773
+<ul>
+<li>773 - Host Item Entry (R)
+<ul>
+<li>$a - Main entry heading (NR)</li>
+</ul></li>
+</ul></li>
+</ul>
 
                 
                 
@@ -2419,7 +2951,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getContainerInfoNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2435,7 +2970,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getDirector() </pre>
                 <p><em>Get the directors (e.g. of a film).</em></p>
-                
+                <ul>
+<li>CSL: director</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2447,7 +2987,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2463,7 +3010,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getEditor() </pre>
                 <p><em>Get the editors.</em></p>
-                
+                <ul>
+<li>CSL: editor</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2475,7 +3027,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2491,7 +3050,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getEditorialDirector() </pre>
                 <p><em>Get the managing editors (“Directeur de la Publication” in French).</em></p>
-                
+                <ul>
+<li>CSL: editorial-director</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2503,7 +3067,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2519,7 +3090,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getIllustrator() </pre>
                 <p><em>Get the illustrators (e.g. of a children’s book).</em></p>
-                
+                <ul>
+<li>CSL: illustrator</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2531,7 +3107,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2547,7 +3130,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getInterviewer() </pre>
                 <p><em>Get the interviewers (e.g. of an interview).</em></p>
-                
+                <ul>
+<li>CSL: interviewer</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2559,7 +3147,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2575,7 +3170,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getOriginalAuthor() </pre>
                 <p><em>Get the original authors?</em></p>
-                
+                <ul>
+<li>CSL: original-author</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2603,7 +3201,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getRecipient() </pre>
                 <p><em>Get the recipients (e.g. of a letter).</em></p>
-                
+                <ul>
+<li>CSL: recipient</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2615,7 +3218,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2631,7 +3241,10 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getReviewedAuthor() </pre>
                 <p><em>Get the authors of the item reviewed by the current item.</em></p>
-                
+                <ul>
+<li>CSL: reviewed-author</li>
+<li>MARC: TODO</li>
+</ul>
 
                 
                 
@@ -2659,7 +3272,12 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getTranslator() </pre>
                 <p><em>Get the translators.</em></p>
-                
+                <ul>
+<li>CSL: translator</li>
+<li>MARC: 100, 110, 600, 610, 700, 710 or 720.</li>
+</ul>
+<p>See <code>getAllNamesNotMemoized</code> and <code>extractNames</code> for more info on the
+specific MARC subfields. In general, the main author should be in 100$a$b.</p>
 
                 
                 
@@ -2671,7 +3289,14 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcCslVariables</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_getAllNamesNotMemoized"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::getAllNamesNotMemoized()</span></a></dd>
+                                            <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html#method_extractNames"><span class="namespace-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok::extractNames()</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2741,15 +3366,29 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
         </aside>
     </div>
 
-                                                                    <div class="row-fluid">
+                                                    <div class="row-fluid">
         <div class="span8 content class">
             <a id="method_extractNames" name="method_extractNames" class="anchor"></a>
             <article class="method">
-                <h3 class="private ">extractNames()</h3>
+                <h3 class="protected ">extractNames()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">extractNames(string  <span class="argument">$tag</span>) : array</pre>
                 <p><em>Extract names from an X00 or X10 field.</em></p>
-                
+                <p>MARC: Any tag containing personal names (X00) or corporate names (X10).</p>
+<ul>
+<li>X00 - Personal Names-General Information
+<ul>
+<li>$a - Personal name (NR)</li>
+<li>$c - Titles and words associated with a name (R)</li>
+<li>$e - Relator term (R)</li>
+</ul></li>
+<li>X10 - Corporate Names-General Information
+<ul>
+<li>$a - Corporate name or jurisdiction name as entry element (NR)</li>
+<li>$c - Location of meeting (R)</li>
+<li>$e - Relator term (R)</li>
+</ul></li>
+</ul>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -2772,7 +3411,11 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2780,7 +3423,7 @@ Even the CSL spec lists this as &quot;?&quot;.</p>
         </aside>
     </div>
 
-                                    <div class="row-fluid">
+                                                    <div class="row-fluid">
         <div class="span8 content class">
             <a id="method_getAllNamesNotMemoized" name="method_getAllNamesNotMemoized" class="anchor"></a>
             <article class="method">
@@ -2804,7 +3447,12 @@ Not memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd720.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd720.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2836,7 +3484,11 @@ Not memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bdx00.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx00.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bdx10.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx10.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/relators/relaterm.html"><span class="namespace-wrapper">https://www.loc.gov/marc/relators/relaterm.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2858,7 +3510,12 @@ Not memoized.</p>
                 
                                     <h4>Returns</h4>
                     array
-                                            &mdash; <p>An array of arrays containing CSL name variables, keyed by relator code.</p>
+                                            &mdash; <p>An array of meetings. Each meeting can have the following keys:</p>
+<ul>
+<li><code>name</code>: string</li>
+<li><code>locations</code>: array of strings</li>
+<li><code>dates</code>: array of strings</li>
+</ul>
                                     
                             </article>
         </div>
@@ -2867,7 +3524,9 @@ Not memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bdx11.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bdx11.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2883,8 +3542,20 @@ Not memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getContainerInfoNotMemoized() : array</pre>
                 <p><em>Get all container (parent record) info.</em></p>
-                <p>Memoized.</p>
-<p>Most info comes from field 773 - Host Item Entry (R).</p>
+                <p>Not memoized.</p>
+<p>MARC: 773 - Host Item Entry (R)</p>
+<ul>
+<li>$t - Title (NR) -&gt; title</li>
+<li>$p - Abbreviated title (NR) -&gt; title_short</li>
+<li>$g - Related parts (R) -&gt; pages, number, volume, part</li>
+<li>$q - Enumeration and first page (NR) -&gt; first page, number, volume, part</li>
+<li>$b - Edition (NR) -&gt; edition</li>
+<li>$a - Main entry heading (NR) -&gt; authors</li>
+</ul>
+<p>Subfield $q is considered before subfield $g for number, volume and part,
+because it uses a fixed format which can be reliably parsed. However, if
+a range of pages needs to be specified, we have to get it is from $g, since
+$q only contains the first page in the range.</p>
 
                 
                 
@@ -2899,7 +3570,9 @@ Not memoized.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd773.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd773.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2916,9 +3589,29 @@ Not memoized.</p>
                 <pre class="signature" style="margin-right: 54px;">getAllPublicationInfoNotMemoized() : array</pre>
                 <p><em>Get all info about publishers, etc.</em></p>
                 <p>Not memoized.</p>
-<p>Info comes from fields 260 and 264.
-To keep things simple, we support the repeated fields, but not repeated
-subfields here. Simply use the first subfield if available.</p>
+<p>MARC:</p>
+<ul>
+<li>260 - Publication, Distribution, etc. (Imprint) (R)
+<ul>
+<li>$a - Place of publication, distribution, etc. (R)</li>
+<li>$b - Name of publisher, distributor, etc. (R)</li>
+<li>$c - Date of publication, distribution, etc. (R)</li>
+<li>$e - Place of manufacture (R)</li>
+<li>$f - Manufacturer (R)</li>
+<li>$g - Date of manufacture (R)</li>
+</ul></li>
+<li>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
+<ul>
+<li>$a - Place of production, publication, distribution, manufacture</li>
+<li>$b - Name of producer, publisher, distributor, manufacturer (R)</li>
+<li>$c - Date of production, publication, distribution, manufacture, or copyright notice (R)</li>
+</ul></li>
+</ul>
+<p>Results are grouped by the named entity's function (e.g. publisher,
+producer, etc.). Each group is sorted, first by the first indicator, then
+by date, so that the current/latest entity is listed first,</p>
+<p>To keep things simple, we support the repeated fields, but not repeated
+subfields here. We simply use the first subfield if available.</p>
 
                 
                 
@@ -2933,7 +3626,10 @@ subfields here. Simply use the first subfield if available.</p>
                                                             <dl>
                                                     <dt>Inherited from</dt>
                     <dd><a href="../classes/RudolfByker.PhpMarcCsl.MarcGrok.html"><div class="path-wrapper">\RudolfByker\PhpMarcCsl\MarcGrok</div></a></dd>
-                                                            </dl>
+                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://www.loc.gov/marc/bibliographic/bd260.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd260.html</span></a></dd>
+                                            <dd><a href="https://www.loc.gov/marc/bibliographic/bd264.html"><span class="namespace-wrapper">https://www.loc.gov/marc/bibliographic/bd264.html</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -2991,7 +3687,7 @@ subfields here. Simply use the first subfield if available.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 5th, 2020 at 12:02.
+                    on August 6th, 2020 at 11:38.
                 </section>
             </section>
         </section>
