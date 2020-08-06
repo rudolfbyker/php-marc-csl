@@ -584,7 +584,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd245.html
    */
   public function getTitle(): string {
-    return $this->record->query('245[0]$a$b')->text() ?? "";
+    $a = $this->record->query('245[0]$a')->text() ?? "";
+    $b = $this->record->query('245[0]$b')->text() ?? "";
+    return Util::trimNonWordCharacters(implode(" ", array_filter([$a, $b])));
   }
 
   /**
