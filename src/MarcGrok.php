@@ -347,7 +347,7 @@ class MarcGrok {
    * MARC: 773 - Host Item Entry (R)
    * - $t - Title (NR) -> title
    * - $p - Abbreviated title (NR) -> title_short
-   * - $g - Related parts (R) -> pages, number, volume, part
+   * - $g - Related parts (R) -> pages, number, volume, part, date
    * - $q - Enumeration and first page (NR) -> first page, number, volume, part
    * - $b - Edition (NR) -> edition
    * - $a - Main entry heading (NR) -> authors
@@ -394,6 +394,10 @@ class MarcGrok {
 
     if (!empty($q['page'])) {
       $result['first_page'] = $q['page'];
+    }
+
+    if (!empty($g['date'])) {
+      $result['date'] = $g['date'];
     }
 
     if (!empty($q['number'])) {

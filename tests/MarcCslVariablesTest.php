@@ -55,17 +55,43 @@ XML
    * Test the getAll method.
    */
   public function testGetAll() {
-    $xml = '<?xml version="1.0" encoding="UTF-8"?>
+    $xml = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
 <record>
-  <datafield ind1=" " ind2=" " tag="">
-    <subfield code=""></subfield>
+  <datafield tag="245">
+    <subfield code="a">'Let the Dead Bury Their Dead' (Matt. 8:22/Luke 9:60) :</subfield>
+    <subfield code="b">Jesus and the Halakhah</subfield>
   </datafield>
-</record>';
+  <datafield tag="773">
+    <subfield code="t">The Journal of Theological Studies</subfield>
+    <subfield code="g">Vol. 49, no. 2 (October 1998), p. 553-581</subfield>
+    <subfield code="q">49:2&lt;553</subfield>
+  </datafield>
+  <datafield tag="856">
+    <subfield code="u">https://www.jstor.org/stable/23968765</subfield>
+  </datafield>
+  <datafield tag="100">
+    <subfield code="a">Markus Bockmuehl</subfield>
+    <subfield code="e">aut</subfield>
+  </datafield>
+  <datafield tag="260">
+    <subfield code="b">Oxford University Press</subfield>
+  </datafield>
+</record>
+XML;
     $marcCsl = new MarcCslVariables(Record::fromString($xml));
-    $all = $marcCsl->getAll();
-    // TODO: assert something.
-    echo '';
-    $this->markTestIncomplete("TODO: Implement test for MarcCslVariables.");
+    $this->assertEquals([
+      'title' => '\'Let the Dead Bury Their Dead\' (Matt. 8:22/Luke 9:60) : Jesus and the Halakhah',
+      'container-title' => 'The Journal of Theological Studies',
+      'page' => '553-581',
+      'page-first' => '553',
+      'volume' => '49',
+      'issue' => '2',
+      'url' => 'https://www.jstor.org/stable/23968765',
+      'author' => [['family' => 'Markus Bockmuehl']],
+      'issued' => ['raw' => 'October 1998'],
+      'publisher' => 'Oxford University Press',
+    ], $marcCsl->getAll());
   }
 
 }

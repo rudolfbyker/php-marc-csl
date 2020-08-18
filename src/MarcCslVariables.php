@@ -356,13 +356,20 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
    *         - $b - Name of producer, publisher, distributor, manufacturer (R)
    *
+   *
    * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
    * @see https://www.loc.gov/marc/bibliographic/bd260.html
    * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
   public function getOriginalPublisher(): string {
     $info = $this->getAllPublicationInfo();
-    $original_publisher = Util::getLastArrayElement($info['publisher'] ?? [], []);
+    $publishers = $info['publisher'];
+    if (count($publishers) < 2) {
+      // There is only one publisher.
+      // Rather return empty than return the same as getPublisher().
+      return "";
+    }
+    $original_publisher = Util::getLastArrayElement($publishers ?? [], []);
     return $original_publisher['name'] ?? "";
   }
 
@@ -782,14 +789,31 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
 
   /**
+   * Utility function for wrapping raw strings in array for CSL-JSON.
+   *
+   * @param string|null $raw
+   *   The date string.
+   *
+   * @return array|string[]
+   *   An array like `['raw' => 'October 1998']` if the string is not empty.
+   *   Otherwise `[]`.
+   */
+  private static function wrapDate(string $raw = NULL): array {
+    if ($raw) {
+      return ['raw' => $raw];
+    }
+    return [];
+  }
+
+  /**
    * Get the date the item has been accessed.
    *
    * - CSL: accessed
    * - MARC: TODO
    */
-  public function getAccessed(): string {
+  public function getAccessed(): array {
     // TODO:
-    return "";
+    return self::wrapDate("");
   }
 
   /**
@@ -801,8 +825,8 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * - CSL: container
    * - MARC: ???
    */
-  public function getContainer(): string {
-    return "";
+  public function getContainer(): array {
+    return self::wrapDate("");
   }
 
   /**
@@ -815,10 +839,10 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllMeetingsNotMemoized()
    * @see https://www.loc.gov/marc/bibliographic/bdx11.html
    */
-  public function getEventDate(): string {
+  public function getEventDate(): array {
     $meetings = $this->getAllMeetings();
     $firstDate = $meetings[0]['dates'][0] ?? "";
-    return Util::trimNonWordCharacters($firstDate) ?: "";
+    return self::wrapDate(Util::trimNonWordCharacters($firstDate) ?: "");
   }
 
   /**
@@ -830,14 +854,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *         - $c - Date of publication, distribution, etc. (R)
    *     - 264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)
    *         - $c - Date of production, publication, distribution, manufacture, or copyright notice (R)
+   *     - 773 - Host Item Entry (R)
+   *         - $g - Related parts (R) -> extract date from parentheses.
    *
    * @see \RudolfByker\PhpMarcCsl\MarcGrok::getAllPublicationInfoNotMemoized()
+   * @see \RudolfByker\PhpMarcCsl\MarcGrok::getContainerInfoNotMemoized()
    * @see https://www.loc.gov/marc/bibliographic/bd260.html
    * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
-  public function getIssued(): string {
-    $info = $this->getAllPublicationInfo();
-    return $info['publisher'][0]['date'] ?? "";
+  public function getIssued(): array {
+    $publishInfo = $this->getAllPublicationInfo();
+    $containerInfo = $this->getContainerInfo();
+    return self::wrapDate($publishInfo['publisher'][0]['date'] ?? $containerInfo['date'] ?? NULL);
   }
 
   /**
@@ -854,10 +882,10 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd260.html
    * @see https://www.loc.gov/marc/bibliographic/bd264.html
    */
-  public function getOriginalDate(): string {
+  public function getOriginalDate(): array {
     $info = $this->getAllPublicationInfo();
     $original_publisher = Util::getLastArrayElement($info['publisher'] ?? [], []);
-    return $original_publisher['date'] ?? "";
+    return self::wrapDate($original_publisher['date'] ?? "");
   }
 
   /**
@@ -866,9 +894,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * - CSL: submitted
    * - MARC: TODO
    */
-  public function getSubmitted(): string {
+  public function getSubmitted(): array {
     // TODO:
-    return "";
+    return self::wrapDate("");
   }
 
   /*
@@ -1173,7 +1201,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @return object
    *   JSON-serializable object.
    */
-  public function jsonSerialize() {
+  public function jsonSerialize(): object {
     return (object) $this->getAll();
   }
 
