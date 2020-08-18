@@ -19,16 +19,36 @@ class MarcCslVariablesTest extends TestCase {
    * Test the getTitle method.
    */
   public function testGetTitle() {
-    $xml = '<?xml version="1.0" encoding="UTF-8"?>
+    $marcCsl = new MarcCslVariables(Record::fromString(<<<XML
+<?xml version="1.0" encoding="UTF-8"?>
 <record>
   <datafield ind1="1" ind2="0" tag="245">
     <subfield code="a">Ons en ons kinders :</subfield>
     <subfield code="b">besinninge oor die verhouding ouer-kind /</subfield>
     <subfield code="c">deur C.K. Oberholzer.</subfield>
   </datafield>
-</record>';
-    $marcCsl = new MarcCslVariables(Record::fromString($xml));
-    $this->assertEquals("Ons en ons kinders : besinninge oor die verhouding ouer-kind", $marcCsl->getTitle());
+</record>
+XML
+    ));
+    $this->assertEquals(
+      "Ons en ons kinders : besinninge oor die verhouding ouer-kind",
+      $marcCsl->getTitle()
+    );
+
+    $marcCsl = new MarcCslVariables(Record::fromString(<<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield ind1="1" ind2="0" tag="245">
+    <subfield code="a">'Let the Dead Bury Their Dead' (Matt. 8:22/Luke 9:60) :</subfield>
+    <subfield code="b">Jesus and the Halakhah</subfield>
+  </datafield>
+</record>
+XML
+    ));
+    $this->assertEquals(
+      "'Let the Dead Bury Their Dead' (Matt. 8:22/Luke 9:60) : Jesus and the Halakhah",
+      $marcCsl->getTitle()
+    );
   }
 
   /**

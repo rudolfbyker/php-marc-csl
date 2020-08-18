@@ -160,7 +160,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
     // If this is a sub-series, the title of the main series may be in 760$t.
     $mainSeriesTitle = $this->record->query('760[0]$t')->text();
 
-    return Util::trimNonWordCharacters($seriesStatement ?: $seriesAddedEntryUniformTitle ?: $mainSeriesTitle ?: "");
+    return trim($seriesStatement ?: $seriesAddedEntryUniformTitle ?: $mainSeriesTitle ?: "");
   }
 
   /**
@@ -178,7 +178,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getContainerTitle(): string {
-    return $this->getContainerInfo()['title'] ?? "";
+    return trim($this->getContainerInfo()['title'] ?? "");
   }
 
   /**
@@ -196,7 +196,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd773.html
    */
   public function getContainerTitleShort(): string {
-    return $this->getContainerInfo()['title_short'] ?? "";
+    return trim($this->getContainerInfo()['title_short'] ?? "");
   }
 
   /**
@@ -398,7 +398,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    *         - $b - Remainder of title (NR)
    */
   public function getOriginalTitle(): string {
-    return $this->record->query('247[0]$a$b')->text() ?? "";
+    return trim($this->record->query('247[0]$a$b')->text() ?? "");
   }
 
   /**
@@ -585,8 +585,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
   public function getTitle(): string {
     $a = $this->record->query('245[0]$a')->text() ?? "";
-    $b = $this->record->query('245[0]$b')->text() ?? "";
-    return Util::trimNonWordCharacters(implode(" ", array_filter([$a, $b])));
+    # If $c is used, $b often ends with slash. Remove it.
+    $b = rtrim($this->record->query('245[0]$b')->text() ?? "", "\\/");
+    return trim(implode(" ", array_filter([$a, $b])));
   }
 
   /**
@@ -600,7 +601,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd210.html
    */
   public function getTitleShort(): string {
-    return $this->record->query('210[0]$a')->text() ?? "";
+    return trim($this->record->query('210[0]$a')->text() ?? "");
   }
 
   /**
