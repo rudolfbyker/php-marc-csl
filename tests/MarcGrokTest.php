@@ -49,7 +49,6 @@ class MarcGrokTest extends TestCase {
       ],
     ], "Single publisher in 260.");
 
-
     $this->assertPublicationInfo('<?xml version="1.0" encoding="UTF-8"?>
 <record>
   <datafield tag="260" ind1=" " ind2=" ">
@@ -220,6 +219,42 @@ class MarcGrokTest extends TestCase {
         ],
       ],
     ], "Multiple values in 260 and 264.");
+  }
+
+  /**
+   * Helper for testing getContainerInfo.
+   *
+   * @param string $xml
+   *   The MARC XML source.
+   * @param array $result
+   *   The expected result.
+   * @param string $message
+   *   The assertion message.
+   */
+  private function assertContainerInfo(string $xml, array $result, string $message = "") {
+    $grok = new MarcGrok(Record::fromString($xml));
+    $this->assertEquals($result, $grok->getContainerInfo(), $message);
+  }
+
+  /**
+   * Test method getContainerInfo.
+   */
+  public function testGetContainerInfo() {
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="t">The Journal of Theological Studies</subfield>
+    <subfield code="g">Vol. 49, no. 2 (October 1998), p. 553-581</subfield>
+    <subfield code="q">49:2&lt;553</subfield>
+  </datafield>
+</record>',         [
+      'title' => "The Journal of Theological Studies",
+      'volume' => "49",
+      'number' => "2",
+      'pages' => "553-581",
+      'first_page' => "553",
+      'date' => "October 1998",
+    ], "Journal container with title, volume, number, pages and date.");
   }
 
 }
