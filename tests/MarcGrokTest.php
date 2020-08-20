@@ -524,5 +524,39 @@ class MarcGrokTest extends TestCase {
         ['family' => 'Author 8'],
       ],
     ], "Use fields 100, 110, 600, 610, 700, 710 and 720.");
+
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">Name</subfield>
+    <subfield code="c">Mr</subfield>
+  </datafield>
+  <datafield tag="100">
+    <subfield code="c">Professor</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        [
+          'family' => 'Name',
+          'suffix' => "Mr"
+        ],
+      ],
+    ], 'Skip fields that do not have $a.');
+
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">Name</subfield>
+    <subfield code="c">Mr</subfield>
+    <subfield code="e">edt</subfield>
+  </datafield>
+</record>', [
+      'edt' => [
+        [
+          'family' => 'Name',
+          'suffix' => "Mr"
+        ],
+      ],
+    ], 'Take relator term into account.');
   }
 }
