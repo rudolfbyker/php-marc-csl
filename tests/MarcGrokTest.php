@@ -559,4 +559,18 @@ class MarcGrokTest extends TestCase {
       ],
     ], 'Take relator term into account.');
   }
+
+  /**
+   * Test method getRecord.
+   */
+  public function testGetRecord() {
+    $record = Record::fromString('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">Author 1</subfield>
+  </datafield>
+</record>');
+    $grok = new MarcGrok($record);
+    $this->assertSame($record, $grok->getRecord());
+  }
 }
