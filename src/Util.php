@@ -101,10 +101,6 @@ class Util {
    */
   public static function parseEnumerationAndFirstPage(string $message): array {
     $parts = explode("<", $message);
-    if (count($parts) === 0) {
-      return [];
-    }
-
     $results = [];
     if (count($parts) > 1) {
       $results['page'] = $parts[1];
