@@ -324,4 +324,107 @@ class MarcGrokTest extends TestCase {
     ], 'Book with title, authors and edition');
   }
 
+  /**
+   * Helper for testing getAllMeetings.
+   *
+   * @param string $xml
+   *   The MARC XML source.
+   * @param array $result
+   *   The expected result.
+   * @param string $message
+   *   The assertion message.
+   */
+  private function assertAllMeetings(string $xml, array $result, string $message = "") {
+    $grok = new MarcGrok(Record::fromString($xml));
+    $this->assertEquals($result, $grok->getAllMeetings(), $message);
+  }
+
+  /**
+   * Test method getAllMeetings.
+   */
+  public function testGetAllMeetings() {
+    $this->assertAllMeetings('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="111">
+    <subfield code="a">One</subfield>
+  </datafield>
+  <datafield tag="111">
+    <subfield code="a">Two</subfield>
+  </datafield>
+  <datafield tag="611">
+    <subfield code="a">Three</subfield>
+  </datafield>
+  <datafield tag="611">
+    <subfield code="a">Four</subfield>
+  </datafield>
+  <datafield tag="711">
+    <subfield code="a">Five</subfield>
+  </datafield>
+  <datafield tag="711">
+    <subfield code="a">Six</subfield>
+  </datafield>
+  <datafield tag="811">
+    <subfield code="a">Seven</subfield>
+  </datafield>
+  <datafield tag="811">
+    <subfield code="a">Eight</subfield>
+  </datafield>
+</record>', [
+      ['name' => 'One'],
+      ['name' => 'Two'],
+      ['name' => 'Three'],
+      ['name' => 'Four'],
+      ['name' => 'Five'],
+      ['name' => 'Six'],
+      ['name' => 'Seven'],
+      ['name' => 'Eight'],
+    ], "Meeting fields are repeatable.");
+
+    $this->assertAllMeetings('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="111">
+    <subfield code="a">DrupalCon</subfield>
+    <subfield code="c">Amsterdam</subfield>
+    <subfield code="d">2019</subfield>
+    <subfield code="c">Barcelona</subfield>
+    <subfield code="d">2020</subfield>
+  </datafield>
+</record>', [
+      [
+        'name' => 'DrupalCon',
+        'locations' => [
+          'Amsterdam',
+          'Barcelona',
+        ],
+        'dates' => [
+          '2019',
+          '2020',
+        ],
+      ],
+    ], "Each meeting can have multiple dates and locations.");
+
+    $this->assertAllMeetings('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="111">
+    <subfield code="a">DrupalCon</subfield>
+    <subfield code="c">Amsterdam</subfield>
+    <subfield code="d">2019</subfield>
+  </datafield>
+  <datafield tag="111">
+    <subfield code="c">Barcelona</subfield>
+    <subfield code="d">2020</subfield>
+  </datafield>
+</record>', [
+      [
+        'name' => 'DrupalCon',
+        'locations' => [
+          'Amsterdam',
+        ],
+        'dates' => [
+          '2019',
+        ],
+      ],
+    ], "Skip meetings that don't have names.");
+
+  }
 }

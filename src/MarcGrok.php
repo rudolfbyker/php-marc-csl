@@ -275,11 +275,11 @@ class MarcGrok {
     $tags = [
       // Main Entry - Meeting Name.
       '111',
-      // 611 - Subject Added Entry - Meeting Name
+      // Subject Added Entry - Meeting Name
       '611',
       // Added Entry - Meeting Name.
       '711',
-      // 811 - Series Added Entry - Meeting Name
+      // Series Added Entry - Meeting Name
       '811',
     ];
 
