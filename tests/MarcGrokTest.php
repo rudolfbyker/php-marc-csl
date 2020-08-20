@@ -427,4 +427,43 @@ class MarcGrokTest extends TestCase {
     ], "Skip meetings that don't have names.");
 
   }
+
+  /**
+   * Helper for testing getAllSeriesNames.
+   *
+   * @param string $xml
+   *   The MARC XML source.
+   * @param array $result
+   *   The expected result.
+   * @param string $message
+   *   The assertion message.
+   */
+  private function assertAllSeriesNames(string $xml, array $result, string $message = "") {
+    $grok = new MarcGrok(Record::fromString($xml));
+    $this->assertEquals($result, $grok->getAllSeriesNames(), $message);
+  }
+
+  /**
+   * Test method getAllSeriesNames.
+   */
+  public function testGetAllSeriesNames() {
+    $this->assertAllSeriesNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="800">
+    <subfield code="a">Series author 1</subfield>
+  </datafield>
+  <datafield tag="800">
+    <subfield code="a">Series author 2</subfield>
+  </datafield>
+  <datafield tag="810">
+    <subfield code="a">Another series author</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        ['family' => 'Series author 1'],
+        ['family' => 'Series author 2'],
+        ['family' => 'Another series author'],
+      ],
+    ], "Use fields 800 and 810.");
+  }
 }

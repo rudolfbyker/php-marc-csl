@@ -191,7 +191,7 @@ class MarcGrok {
 
     $names = [];
     foreach ($tags as $tag) {
-      $names = array_merge($names, $this->extractNames($tag));
+      $names = array_merge_recursive($names, $this->extractNames($tag));
     }
     return $names;
   }
@@ -236,7 +236,7 @@ class MarcGrok {
 
     $names = [];
     foreach ($tags as $tag) {
-      $names = array_merge($names, $this->extractNames($tag));
+      $names = array_merge_recursive($names, $this->extractNames($tag));
     }
     return $names;
   }
