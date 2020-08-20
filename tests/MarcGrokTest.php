@@ -10,6 +10,7 @@ use Scriptotek\Marc\Record;
  * Test the MarcGrok class.
  *
  * @group php-marc-csl
+ * @covers \RudolfByker\PhpMarcCsl\MarcGrok
  */
 class MarcGrokTest extends TestCase {
 

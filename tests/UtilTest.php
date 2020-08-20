@@ -9,6 +9,7 @@ use PHPUnit\Framework\TestCase;
  * Test the Util class.
  *
  * @group php-marc-csl
+ * @covers \RudolfByker\PhpMarcCsl\Util
  */
 class UtilTest extends TestCase {
 

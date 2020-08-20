@@ -1,8 +1,6 @@
 <?php
 
-
 namespace RudolfByker\PhpMarcCsl\Tests;
-
 
 use PHPUnit\Framework\TestCase;
 use RudolfByker\PhpMarcCsl\MarcCslVariables;
@@ -12,6 +10,7 @@ use Scriptotek\Marc\Record;
  * Test the MarcCslVariables class.
  *
  * @group php-marc-csl
+ * @covers \RudolfByker\PhpMarcCsl\MarcCslVariables
  */
 class MarcCslVariablesTest extends TestCase {
 
