@@ -466,4 +466,63 @@ class MarcGrokTest extends TestCase {
       ],
     ], "Use fields 800 and 810.");
   }
+
+  /**
+   * Helper for testing getAllNames.
+   *
+   * @param string $xml
+   *   The MARC XML source.
+   * @param array $result
+   *   The expected result.
+   * @param string $message
+   *   The assertion message.
+   */
+  private function assertAllNames(string $xml, array $result, string $message = "") {
+    $grok = new MarcGrok(Record::fromString($xml));
+    $this->assertEquals($result, $grok->getAllNames(), $message);
+  }
+
+  /**
+   * Test method getAllNames.
+   */
+  public function testGetAllNames() {
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">Author 1</subfield>
+  </datafield>
+  <datafield tag="100">
+    <subfield code="a">Author 2</subfield>
+  </datafield>
+  <datafield tag="110">
+    <subfield code="a">Author 3</subfield>
+  </datafield>
+  <datafield tag="600">
+    <subfield code="a">Author 4</subfield>
+  </datafield>
+  <datafield tag="610">
+    <subfield code="a">Author 5</subfield>
+  </datafield>
+  <datafield tag="700">
+    <subfield code="a">Author 6</subfield>
+  </datafield>
+  <datafield tag="710">
+    <subfield code="a">Author 7</subfield>
+  </datafield>
+  <datafield tag="720">
+    <subfield code="a">Author 8</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        ['family' => 'Author 1'],
+        ['family' => 'Author 2'],
+        ['family' => 'Author 3'],
+        ['family' => 'Author 4'],
+        ['family' => 'Author 5'],
+        ['family' => 'Author 6'],
+        ['family' => 'Author 7'],
+        ['family' => 'Author 8'],
+      ],
+    ], "Use fields 100, 110, 600, 610, 700, 710 and 720.");
+  }
 }
