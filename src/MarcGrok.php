@@ -428,18 +428,13 @@ class MarcGrok {
     }
 
     // $a - Main entry heading (NR)
-    // TODO: Is this correct?
+    // TODO: Is this field really supposed to contain the author?
     // When creating a child record in Koha, the host's '100$a$b' value is
     // copied to the child's '773$a' value. This happens in
     // 'prepare_host_field' in 'Biblio.pm'.
-    $authors = [];
-    foreach ($this->record->query('773') as $field) {
-      foreach ($field->getSubfieldValues('a') as $value) {
-        $authors[] = ['family' => $value];
-      }
-    }
-    if (count($authors)) {
-      $result['authors'] = $authors;
+    $a = $this->record->query('773$a')->text();
+    if ($a) {
+      $result['author'] = ['family' => $a];
     }
 
     // TODO: "section" ? Not sure where to find this in MARC data other than

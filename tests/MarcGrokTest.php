@@ -245,17 +245,83 @@ class MarcGrokTest extends TestCase {
 <record>
   <datafield tag="773">
     <subfield code="t">The Journal of Theological Studies</subfield>
+    <subfield code="p">JTS</subfield>
     <subfield code="g">Vol. 49, no. 2 (October 1998), p. 553-581</subfield>
     <subfield code="q">49:2&lt;553</subfield>
   </datafield>
-</record>',         [
+</record>', [
       'title' => "The Journal of Theological Studies",
+      'title_short' => "JTS",
       'volume' => "49",
       'number' => "2",
       'pages' => "553-581",
       'first_page' => "553",
       'date' => "October 1998",
     ], "Journal container with title, volume, number, pages and date.");
+
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="g">Vol. 49, no. 2 (October 1998)</subfield>
+    <subfield code="q">49:2&lt;553</subfield>
+  </datafield>
+</record>', [
+      'volume' => "49",
+      'number' => "2",
+      'pages' => "553",
+      'first_page' => "553",
+      'date' => "October 1998",
+    ], 'Use first page from $q if pages are not specified in $g.');
+
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="g">Vol. 49, no. 2 (October 1998)</subfield>
+    <subfield code="q">&lt;553</subfield>
+  </datafield>
+</record>', [
+      'volume' => "49",
+      'number' => "2",
+      'pages' => "553",
+      'first_page' => "553",
+      'date' => "October 1998",
+    ], 'Use volume and issue number from $g if not specified in $q.');
+
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="g">Vol. 49, pt. C, no. 2 (October 1998)</subfield>
+  </datafield>
+</record>', [
+      'volume' => "49",
+      'part' => "C",
+      'number' => "2",
+      'date' => "October 1998",
+    ], 'Volume, part and issue in $g');
+
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="q">49:C:2</subfield>
+  </datafield>
+</record>', [
+      'volume' => "49",
+      'part' => "C",
+      'number' => "2",
+    ], 'Volume, part and issue in $q');
+
+    $this->assertContainerInfo('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="773">
+    <subfield code="a">John MacArthur</subfield>
+    <subfield code="b">2</subfield>
+    <subfield code="t">Biblical Counseling</subfield>
+  </datafield>
+</record>', [
+      'author' => ['family' => "John MacArthur"],
+      'title' => "Biblical Counseling",
+      'edition' => "2",
+    ], 'Book with title, authors and edition');
   }
 
 }
