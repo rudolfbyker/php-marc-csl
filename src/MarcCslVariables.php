@@ -363,9 +363,9 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
   public function getOriginalPublisher(): string {
     $info = $this->getAllPublicationInfo();
-    $publishers = $info['publisher'];
+    $publishers = $info['publisher'] ?? [];
     if (count($publishers) < 2) {
-      // There is only one publisher.
+      // There is not more than one publisher.
       // Rather return empty than return the same as getPublisher().
       return "";
     }
