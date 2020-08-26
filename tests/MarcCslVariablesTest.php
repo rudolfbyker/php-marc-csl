@@ -255,4 +255,20 @@ XML
     );
   }
 
+  /**
+   * Test the type property.
+   */
+  public function testTypeProperty() {
+    $csl = new MarcCslVariables(Record::fromString('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="245">
+    <subfield code="a">Title :</subfield>
+    <subfield code="b">Subtitle</subfield>
+  </datafield>
+</record>'));
+    $csl->type = "article-journal";
+    $data = json_decode(json_encode($csl));
+    $this->assertEquals($data->type, "article-journal");
+  }
+
 }

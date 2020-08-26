@@ -31,6 +31,15 @@ use JsonSerializable;
 class MarcCslVariables extends MarcGrok implements JsonSerializable {
 
   /*
+   * Fields that can be set manually by the user.
+   */
+
+  /**
+   * @var string
+   */
+  public $type;
+
+  /*
    * STANDARD VARIABLES
    * https://docs.citationstyles.org/en/stable/specification.html#standard-variables
    */
@@ -1213,6 +1222,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
   public function getAll(): array {
     return array_filter([
+      "type" => $this->type ?? "",
       "abstract" => $this->getAbstract(),
       "annote" => $this->getAnnote(),
       "archive" => $this->getArchive(),
