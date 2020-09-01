@@ -94,6 +94,7 @@ class MarcGrok {
    * @see https://www.loc.gov/marc/bibliographic/bdx00.html
    * @see https://www.loc.gov/marc/bibliographic/bdx10.html
    * @see https://www.loc.gov/marc/relators/relaterm.html
+   * @see https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields
    *
    * @return array
    *   An array of arrays, each serializable to CSL-JSON name variables.
@@ -102,19 +103,31 @@ class MarcGrok {
     $names = [];
     /** @var \Scriptotek\Marc\Fields\Field $field */
     foreach ($this->record->query($tag) as $field) {
-
-      // This is one of those rare cases where CSL is more detailed than
-      // MARC. We could try to parse the name, but it's probably not worth
-      // the effort, so we just stick everything in "family".
-      // See https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#name-fields
-      // TODO: Take first indicator into account.
       $personal_name = $field->getSubfield('a');
       if (!$personal_name) {
         // We don't have a name, so skip this field.
         continue;
       }
 
-      $name = ['family' => $personal_name->getData()];
+      $name = [];
+
+      // This is one of those rare cases where CSL is more detailed than MARC:
+      // CSL has separate fields for parts of the name, but MARC does not.
+      $ind1 = $field->getIndicator(1);
+      if (substr($tag, 1, 2) === "00" && $ind1 === "1") {
+        // The name is in the surname-first format, e.g.:
+        // "van der Linden, Jopie."
+        // Since a name containing a comma is rare, we can split on the comma
+        // to discern what is the surname and what is the forename.
+        // Exotic names that don't conform to this should not use "1" for the
+        // first indicator.
+        $parts = explode(",", $personal_name->getData(), 2);
+        $name['family'] = trim($parts[0] ?? "", ", \t\n\r\0\x0B");
+        $name['given'] = trim($parts[1] ?? "", ", \t\n\r\0\x0B");
+      } else {
+        // In all other cases, use the name verbatim, but trim commas and whitespace.
+        $name['family'] = trim($personal_name->getData(), ", \t\n\r\0\x0B");
+      }
 
       // Use "Titles and words associated with a name" or "Location of meeting"
       // as the suffix in CSL, if available.

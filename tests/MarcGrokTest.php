@@ -558,6 +558,55 @@ class MarcGrokTest extends TestCase {
         ],
       ],
     ], 'Take relator term into account.');
+
+    // The following are fake examples, i.e. you would not have something like
+    // "Bach, Johann Sebastian." when first indicator=3. Having a comma in a
+    // name is rare when it's not in surname-first format, but we have to test
+    // for it.
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">Adams, Henry,</subfield>
+  </datafield>
+  <datafield tag="100" ind1="0">
+    <subfield code="a">Riaño, Juan Facundo,</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1">
+    <subfield code="a">Fowler, Thaddeus Mortimer</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1">
+    <subfield code="a">van der Linden, Jopie</subfield>
+  </datafield>
+  <datafield tag="100" ind1="3">
+    <subfield code="a">Bach, Johann Sebastian.</subfield>
+  </datafield>
+  <datafield tag="110" ind1="1">
+    <subfield code="a">Texas, USA</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        [
+          'family' => 'Adams, Henry',
+        ],
+        [
+          'family' => 'Riaño, Juan Facundo',
+        ],
+        [
+          'given' => 'Thaddeus Mortimer',
+          'family' => 'Fowler',
+        ],
+        [
+          'given' => 'Jopie',
+          'family' => 'van der Linden',
+        ],
+        [
+          'family' => 'Bach, Johann Sebastian.',
+        ],
+        [
+          'family' => 'Texas, USA',
+        ],
+      ],
+    ], 'For X00 fields, split on comma when first indicator is 1 (surname first).');
   }
 
   /**
