@@ -31,7 +31,8 @@ XML
     ));
     $this->assertEquals(
       "Ons en ons kinders : besinninge oor die verhouding ouer-kind",
-      $marcCsl->getTitle()
+      $marcCsl->getTitle(),
+      'Title with subtitle, using colon in $a and forward slash in $b. Ignore $c.'
     );
 
     $marcCsl = new MarcCslVariables(Record::fromString(<<<XML
@@ -46,7 +47,23 @@ XML
     ));
     $this->assertEquals(
       "'Let the Dead Bury Their Dead' (Matt. 8:22/Luke 9:60) : Jesus and the Halakhah",
-      $marcCsl->getTitle()
+      $marcCsl->getTitle(),
+      "Title containing special characters."
+    );
+
+    $marcCsl = new MarcCslVariables(Record::fromString(<<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield ind1="1" ind2="0" tag="245">
+    <subfield code="a">An introduction to biblical Hebrew syntax / </subfield>
+  </datafield>
+</record>
+XML
+    ));
+    $this->assertEquals(
+      "An introduction to biblical Hebrew syntax",
+      $marcCsl->getTitle(),
+      'Title without subtitle, using forward slash in $a.'
     );
   }
 

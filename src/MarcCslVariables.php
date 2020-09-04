@@ -600,9 +600,10 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/bibliographic/bd245.html
    */
   public function getTitle(): string {
-    $a = $this->record->query('245[0]$a')->text() ?? "";
-    # If $c is used, $b often ends with slash. Remove it.
-    $b = rtrim($this->record->query('245[0]$b')->text() ?? "", "\\/");
+    // $a and $b may end with slashes, which we want to remove.
+    // TODO: Figure out how "Leader/18 - Descriptive cataloging form." works.
+    $a = rtrim($this->record->query('245[0]$a')->text() ?? "", " \\/");
+    $b = rtrim($this->record->query('245[0]$b')->text() ?? "", " \\/");
     return trim(implode(" ", array_filter([$a, $b])));
   }
 
