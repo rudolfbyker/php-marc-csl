@@ -934,17 +934,17 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   public function getAuthor(): array {
     $names = $this->getAllNames();
     $legit_authors = array_merge(
-      $names[RelatorTerm::AUTHOR] ?? [],
-      $names[RelatorTerm::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_DIALOG] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? []
+      $names[Relators::AUTHOR] ?? [],
+      $names[Relators::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
+      $names[Relators::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
+      $names[Relators::AUTHOR_OF_DIALOG] ?? [],
+      $names[Relators::AUTHOR_OF_INTRODUCTION_ETC] ?? []
     );
     // Only use dubious author if there are no other authors specified.
     if (count($legit_authors)) {
       return $legit_authors;
     }
-    return $names[RelatorTerm::DUBIOUS_AUTHOR] ?? [];
+    return $names[Relators::DUBIOUS_AUTHOR] ?? [];
   }
 
   /**
@@ -964,18 +964,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   public function getCollectionEditor(): array {
     $names = $this->getAllSeriesNames();
     $editors = array_merge(
-      $names[RelatorTerm::EDITOR] ?? [],
-      $names[RelatorTerm::EDITOR_OF_COMPILATION] ?? [],
-      $names[RelatorTerm::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
-      $names[RelatorTerm::FILM_EDITOR] ?? [],
-      $names[RelatorTerm::MARKUP_EDITOR] ?? []
+      $names[Relators::EDITOR] ?? [],
+      $names[Relators::EDITOR_OF_COMPILATION] ?? [],
+      $names[Relators::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
+      $names[Relators::FILM_EDITOR] ?? [],
+      $names[Relators::MARKUP_EDITOR] ?? []
     );
     $authors = array_merge(
-      $names[RelatorTerm::AUTHOR] ?? [],
-      $names[RelatorTerm::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_DIALOG] ?? [],
-      $names[RelatorTerm::AUTHOR_OF_INTRODUCTION_ETC] ?? []
+      $names[Relators::AUTHOR] ?? [],
+      $names[Relators::AUTHOR_IN_QUOTATIONS_OR_TEXT_ABSTRACTS] ?? [],
+      $names[Relators::AUTHOR_OF_AFTERWORD_COLOPHON_ETC] ?? [],
+      $names[Relators::AUTHOR_OF_DIALOG] ?? [],
+      $names[Relators::AUTHOR_OF_INTRODUCTION_ETC] ?? []
     );
 
     // First try editors. If there are none, use authors.
@@ -999,7 +999,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getComposer(): array {
-    return $this->getAllNames()[RelatorTerm::COMPOSER] ?? [];
+    return $this->getAllNames()[Relators::COMPOSER] ?? [];
   }
 
   /**
@@ -1038,18 +1038,18 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   public function getDirector(): array {
     $names = $this->getAllNames();
     return array_merge(
-      $names[RelatorTerm::DIRECTOR] ?? [],
-      $names[RelatorTerm::ART_DIRECTOR] ?? [],
-      $names[RelatorTerm::ARTISTIC_DIRECTOR] ?? [],
-      $names[RelatorTerm::FIELD_DIRECTOR] ?? [],
-      $names[RelatorTerm::FILM_DIRECTOR] ?? [],
-      $names[RelatorTerm::LABORATORY_DIRECTOR] ?? [],
-      $names[RelatorTerm::MUSICAL_DIRECTOR] ?? [],
-      $names[RelatorTerm::PROJECT_DIRECTOR] ?? [],
-      $names[RelatorTerm::RADIO_DIRECTOR] ?? [],
-      $names[RelatorTerm::STAGE_DIRECTOR] ?? [],
-      $names[RelatorTerm::TECHNICAL_DIRECTOR] ?? [],
-      $names[RelatorTerm::TELEVISION_DIRECTOR] ?? []
+      $names[Relators::DIRECTOR] ?? [],
+      $names[Relators::ART_DIRECTOR] ?? [],
+      $names[Relators::ARTISTIC_DIRECTOR] ?? [],
+      $names[Relators::FIELD_DIRECTOR] ?? [],
+      $names[Relators::FILM_DIRECTOR] ?? [],
+      $names[Relators::LABORATORY_DIRECTOR] ?? [],
+      $names[Relators::MUSICAL_DIRECTOR] ?? [],
+      $names[Relators::PROJECT_DIRECTOR] ?? [],
+      $names[Relators::RADIO_DIRECTOR] ?? [],
+      $names[Relators::STAGE_DIRECTOR] ?? [],
+      $names[Relators::TECHNICAL_DIRECTOR] ?? [],
+      $names[Relators::TELEVISION_DIRECTOR] ?? []
     );
   }
 
@@ -1072,11 +1072,11 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
   public function getEditor(): array {
     $names = $this->getAllNames();
     return array_merge(
-      $names[RelatorTerm::EDITOR] ?? [],
-      $names[RelatorTerm::EDITOR_OF_COMPILATION] ?? [],
-      $names[RelatorTerm::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
-      $names[RelatorTerm::FILM_EDITOR] ?? [],
-      $names[RelatorTerm::MARKUP_EDITOR] ?? []
+      $names[Relators::EDITOR] ?? [],
+      $names[Relators::EDITOR_OF_COMPILATION] ?? [],
+      $names[Relators::EDITOR_OF_MOVING_IMAGE_WORK] ?? [],
+      $names[Relators::FILM_EDITOR] ?? [],
+      $names[Relators::MARKUP_EDITOR] ?? []
     );
   }
 
@@ -1098,7 +1098,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
   public function getEditorialDirector(): array {
     // This is a wild guess, based on the French description.
-    return $this->getAllNames()[RelatorTerm::PUBLISHING_DIRECTOR] ?? [];
+    return $this->getAllNames()[Relators::PUBLISHING_DIRECTOR] ?? [];
   }
 
   /**
@@ -1118,7 +1118,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getIllustrator(): array {
-    return $this->getAllNames()[RelatorTerm::ILLUSTRATOR] ?? [];
+    return $this->getAllNames()[Relators::ILLUSTRATOR] ?? [];
   }
 
   /**
@@ -1138,7 +1138,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getInterviewer(): array {
-    return $this->getAllNames()[RelatorTerm::INTERVIEWER] ?? [];
+    return $this->getAllNames()[Relators::INTERVIEWER] ?? [];
   }
 
   /**
@@ -1169,7 +1169,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getRecipient(): array {
-    return $this->getAllNames()[RelatorTerm::ADDRESSEE] ?? [];
+    return $this->getAllNames()[Relators::ADDRESSEE] ?? [];
   }
 
   /**
@@ -1200,7 +1200,7 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    * @see https://www.loc.gov/marc/relators/relaterm.html
    */
   public function getTranslator(): array {
-    return $this->getAllNames()[RelatorTerm::TRANSLATOR] ?? [];
+    return $this->getAllNames()[Relators::TRANSLATOR] ?? [];
   }
 
   /**

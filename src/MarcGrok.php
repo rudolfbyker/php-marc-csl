@@ -136,17 +136,26 @@ class MarcGrok {
         $name['suffix'] = $associated_words->getData();
       }
 
-      // Now look at the relator code subfield to see what the relationship of
-      // this name is with the work.
+      // Now look at the relator code ($4) and relator term ($e) subfields to
+      // see what the relationship of this name is with the work.
+      $relator_codes = $field->getSubfieldValues('4');
       $relator_terms = $field->getSubfieldValues('e');
 
-      // If there are no relator terms, assume it's an author.
-      if (!count($relator_terms)) {
-        $relator_terms[] = RelatorTerm::AUTHOR;
+      // Try to map relator terms to relator codes.
+      foreach ($relator_terms as $term) {
+        $code = Relators::$codes[Util::chopTrailingPunctuation(strtolower($term))] ?? NULL;
+        if ($code) {
+          $relator_codes[] = $code;
+        }
       }
 
-      foreach ($relator_terms as $relator_term) {
-        $names[$relator_term][] = $name;
+      // If there is no specified relationship, assume it's an author.
+      if (!count($relator_codes)) {
+        $relator_codes[] = Relators::AUTHOR;
+      }
+
+      foreach ($relator_codes as $code) {
+        $names[$code][] = $name;
       }
     }
 

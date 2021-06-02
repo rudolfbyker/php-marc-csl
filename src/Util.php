@@ -148,4 +148,15 @@ class Util {
     return end($arr);
   }
 
+  /**
+   * Remove trailing punctuation typically found on subfield values.
+   *
+   * @param string $value
+   *
+   * @return string
+   */
+  public static function chopTrailingPunctuation(string $value): string {
+    return rtrim($value, '[.:,;]$');
+  }
+
 }

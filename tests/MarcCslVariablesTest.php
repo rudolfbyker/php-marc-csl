@@ -163,7 +163,7 @@ XML
   </datafield>
   <datafield tag="100">
     <subfield code="a">Not really the author</subfield>
-    <subfield code="e">dub</subfield>
+    <subfield code="4">dub</subfield>
   </datafield>
 </record>
 XML

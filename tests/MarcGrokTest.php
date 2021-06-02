@@ -2,8 +2,8 @@
 
 namespace RudolfByker\PhpMarcCsl\Tests;
 
-use RudolfByker\PhpMarcCsl\MarcGrok;
 use PHPUnit\Framework\TestCase;
+use RudolfByker\PhpMarcCsl\MarcGrok;
 use Scriptotek\Marc\Record;
 
 /**
@@ -538,7 +538,7 @@ class MarcGrokTest extends TestCase {
       'aut' => [
         [
           'family' => 'Name',
-          'suffix' => "Mr"
+          'suffix' => "Mr",
         ],
       ],
     ], 'Skip fields that do not have $a.');
@@ -548,16 +548,16 @@ class MarcGrokTest extends TestCase {
   <datafield tag="100">
     <subfield code="a">Name</subfield>
     <subfield code="c">Mr</subfield>
-    <subfield code="e">edt</subfield>
+    <subfield code="4">edt</subfield>
   </datafield>
 </record>', [
       'edt' => [
         [
           'family' => 'Name',
-          'suffix' => "Mr"
+          'suffix' => "Mr",
         ],
       ],
-    ], 'Take relator term into account.');
+    ], 'Take relator code into account.');
 
     // The following are fake examples, i.e. you would not have something like
     // "Bach, Johann Sebastian." when first indicator=3. Having a comma in a
@@ -607,6 +607,80 @@ class MarcGrokTest extends TestCase {
         ],
       ],
     ], 'For X00 fields, split on comma when first indicator is 1 (surname first).');
+  }
+
+  public function testRelators() {
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Moule, C. F. D.</subfield>
+    <subfield code="q">(Charles Francis Digby),</subfield>
+    <subfield code="d">1908-2007.</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        [
+          'family' => 'Moule',
+          'given' => 'C. F. D.',
+        ],
+      ],
+    ], 'No $e, and no $4.');
+
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Moule, C. F. D.</subfield>
+    <subfield code="q">(Charles Francis Digby),</subfield>
+    <subfield code="d">1908-2007,</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+</record>', [
+      'edt' => [
+        [
+          'family' => 'Moule',
+          'given' => 'C. F. D.',
+        ],
+      ],
+    ], 'Human-readable $e with punctuation, and no $4.');
+
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Moule, C. F. D.</subfield>
+    <subfield code="q">(Charles Francis Digby),</subfield>
+    <subfield code="d">1908-2007.</subfield>
+    <subfield code="4">edt</subfield>
+  </datafield>
+</record>', [
+      'edt' => [
+        [
+          'family' => 'Moule',
+          'given' => 'C. F. D.',
+        ],
+      ],
+    ], 'No $e, but $4 is given.');
+
+    $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="100">
+    <subfield code="a">An author</subfield>
+  </datafield>
+  <datafield tag="100">
+    <subfield code="a">Another author</subfield>
+  </datafield>
+  <datafield tag="100">
+    <subfield code="a">Not really the author</subfield>
+    <subfield code="4">dub</subfield>
+  </datafield>
+</record>', [
+      'aut' => [
+        ['family' => 'An author'],
+        ['family' => 'Another author'],
+      ],
+      'dub' => [
+        ['family' => 'Not really the author'],
+      ],
+    ], 'Dubious author should be marked as such.');
   }
 
   /**
