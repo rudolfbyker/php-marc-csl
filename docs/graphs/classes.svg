@@ -111,18 +111,18 @@
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M236.57,-167.33C228.52,-170.83 221.05,-175.57 215.19,-182 113.88,-292.98 230.83,-386.57 151.19,-514 144.23,-525.12 133.84,-534.65 123.33,-542.3"/>
 <polygon fill="none" stroke="black" points="121.21,-539.51 114.93,-548.04 125.16,-545.29 121.21,-539.51"/>
 </g>
-<!-- \\RudolfByker\\PhpMarcCsl\\Util -->
-<g id="node6" class="node">
-<title>\\RudolfByker\\PhpMarcCsl\\Util</title>
-<polygon fill="none" stroke="black" points="326.19,-122 272.19,-122 272.19,-86 326.19,-86 326.19,-122"/>
-<text text-anchor="middle" x="299.19" y="-101.2" font-family="Courier,monospace" font-size="11.00">Util</text>
-</g>
 <!-- \\RudolfByker\\PhpMarcCsl\\Relators -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>\\RudolfByker\\PhpMarcCsl\\Relators</title>
-<polygon fill="none" stroke="black" points="341.19,-68 257.19,-68 257.19,-32 341.19,-32 341.19,-68"/>
-<text text-anchor="start" x="265.19" y="-53.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="271.69" y="-41.2" font-family="Courier,monospace" font-size="11.00">Relators</text>
+<polygon fill="none" stroke="black" points="341.19,-122 257.19,-122 257.19,-86 341.19,-86 341.19,-122"/>
+<text text-anchor="start" x="265.19" y="-107.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="271.69" y="-95.2" font-family="Courier,monospace" font-size="11.00">Relators</text>
+</g>
+<!-- \\RudolfByker\\PhpMarcCsl\\Util -->
+<g id="node7" class="node">
+<title>\\RudolfByker\\PhpMarcCsl\\Util</title>
+<polygon fill="none" stroke="black" points="326.19,-68 272.19,-68 272.19,-32 326.19,-32 326.19,-68"/>
+<text text-anchor="middle" x="299.19" y="-47.2" font-family="Courier,monospace" font-size="11.00">Util</text>
 </g>
 </g>
 </svg>
