@@ -2,14 +2,17 @@
 
 This package tries to map MARC21 records to CSL variables.
 There is no official or industry standard mapping.
-We develop our mapping on our interpretation of the [MARC21 docs](https://www.loc.gov/marc/bibliographic/) and
-[CSL docs](https://docs.citationstyles.org/en/stable/specification.html).
+We develop our mapping on our interpretation of:
+- the [MARC21 docs](https://www.loc.gov/marc/bibliographic/)
+- the [CSL docs](https://docs.citationstyles.org/en/stable/specification.html)
+- the [Citeproc JS docs](https://citeproc-js.readthedocs.io/en/latest/index.html), especially the
+  [CSL-JSON](https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html) part. 
 
 To see which MARC fields maps to which CSL variables, look at the 
-[documentation](https://rudolfbyker.github.io/php-marc-csl/classes/RudolfByker.PhpMarcCsl.MarcCslVariables.html)
+[documentation](https://rudolfbyker.github.io/php-marc-csl/classes/RudolfByker-PhpMarcCsl-MarcCslVariables.html)
 or
 [source code](https://github.com/rudolfbyker/php-marc-csl/blob/master/src/MarcCslVariables.php)
-of the MarcCslVariables class.
+of the `MarcCslVariables` class, especially the `getAll()` method.
 
 ## Example usage:
 
