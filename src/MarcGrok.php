@@ -182,7 +182,12 @@ class MarcGrok {
   /**
    * Get all personal, corporate and uncontrolled names.
    *
-   * Excludes meeting names and series names.
+   * Excludes:
+   * - meeting names
+   * - series names
+   * - names in 600 and 610, because they are the subjects of the work, rather
+   *   than contributors.
+   *
    * Not memoized.
    *
    * @see https://www.loc.gov/marc/bibliographic/bdx00.html
@@ -199,10 +204,6 @@ class MarcGrok {
       '100',
       // Main Entry - Corporate Name.
       '110',
-      // Subject Added Entry - Personal Name.
-      '600',
-      // 610 - Subject Added Entry - Corporate Name
-      '610',
       // Added Entry - Personal Name.
       '700',
       // Added Entry - Corporate Name.
@@ -283,6 +284,10 @@ class MarcGrok {
   /**
    * Get all meetings.
    *
+   * Excludes:
+   * - meetings in 611, because they are the subjects of the work, rather
+   *   than contributors.
+   *
    * Not memoized.
    *
    * @see https://www.loc.gov/marc/bibliographic/bdx11.html
@@ -297,8 +302,6 @@ class MarcGrok {
     $tags = [
       // Main Entry - Meeting Name.
       '111',
-      // Subject Added Entry - Meeting Name
-      '611',
       // Added Entry - Meeting Name.
       '711',
       // Series Added Entry - Meeting Name

@@ -372,8 +372,6 @@ class MarcGrokTest extends TestCase {
 </record>', [
       ['name' => 'One'],
       ['name' => 'Two'],
-      ['name' => 'Three'],
-      ['name' => 'Four'],
       ['name' => 'Five'],
       ['name' => 'Six'],
       ['name' => 'Seven'],
@@ -489,39 +487,37 @@ class MarcGrokTest extends TestCase {
     $this->assertAllNames('<?xml version="1.0" encoding="UTF-8"?>
 <record>
   <datafield tag="100">
-    <subfield code="a">Author 1</subfield>
+    <subfield code="a">Person 1</subfield>
   </datafield>
   <datafield tag="100">
-    <subfield code="a">Author 2</subfield>
+    <subfield code="a">Person 2</subfield>
   </datafield>
   <datafield tag="110">
-    <subfield code="a">Author 3</subfield>
+    <subfield code="a">Person 3</subfield>
   </datafield>
   <datafield tag="600">
-    <subfield code="a">Author 4</subfield>
+    <subfield code="a">Person 4</subfield>
   </datafield>
   <datafield tag="610">
-    <subfield code="a">Author 5</subfield>
+    <subfield code="a">Person 5</subfield>
   </datafield>
   <datafield tag="700">
-    <subfield code="a">Author 6</subfield>
+    <subfield code="a">Person 6</subfield>
   </datafield>
   <datafield tag="710">
-    <subfield code="a">Author 7</subfield>
+    <subfield code="a">Person 7</subfield>
   </datafield>
   <datafield tag="720">
-    <subfield code="a">Author 8</subfield>
+    <subfield code="a">Person 8</subfield>
   </datafield>
 </record>', [
       'aut' => [
-        ['family' => 'Author 1'],
-        ['family' => 'Author 2'],
-        ['family' => 'Author 3'],
-        ['family' => 'Author 4'],
-        ['family' => 'Author 5'],
-        ['family' => 'Author 6'],
-        ['family' => 'Author 7'],
-        ['family' => 'Author 8'],
+        ['family' => 'Person 1'],
+        ['family' => 'Person 2'],
+        ['family' => 'Person 3'],
+        ['family' => 'Person 6'],
+        ['family' => 'Person 7'],
+        ['family' => 'Person 8'],
       ],
     ], "Use fields 100, 110, 600, 610, 700, 710 and 720.");
 
@@ -690,7 +686,7 @@ class MarcGrokTest extends TestCase {
     $record = Record::fromString('<?xml version="1.0" encoding="UTF-8"?>
 <record>
   <datafield tag="100">
-    <subfield code="a">Author 1</subfield>
+    <subfield code="a">Person 1</subfield>
   </datafield>
 </record>');
     $grok = new MarcGrok($record);
