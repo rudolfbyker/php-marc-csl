@@ -55,9 +55,10 @@ If your data is mapped incorrectly, create an issue or PR, and provide:
 
 ## Generating docs
 
-1. Install phpDocumentor.
+1. Download phpDocumentor.
    According to https://www.phpdoc.org/, we should not install phpDocumentor using composer.
    Follow the instructions there to install it.
-2. Run `phpDocumentor`.
-3. Commit generated docs. Docs committed to the repository should be available on Github pages:
+2. Remove the old docs dir: `rm -rf docs`.
+3. Run `phpDocumentor.phar` to generate new docs.
+4. Commit generated docs. Docs committed to the repository should be available on Github pages:
    https://github.com/rudolfbyker/php-marc-csl/deployments/activity_log?environment=github-pages
