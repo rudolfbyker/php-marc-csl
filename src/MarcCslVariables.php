@@ -810,6 +810,8 @@ class MarcCslVariables extends MarcGrok implements JsonSerializable {
    */
   private static function wrapDate(string $raw = NULL): array {
     if ($raw) {
+      // Leave the interpretation of dates to the citation renderer.
+      // See https://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#date-fields
       return ['raw' => $raw];
     }
     return [];

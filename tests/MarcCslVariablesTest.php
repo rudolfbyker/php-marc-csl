@@ -288,4 +288,43 @@ XML
     $this->assertEquals($data->type, "article-journal");
   }
 
+  /**
+   * Helper function for testGetIssued.
+   *
+   * @param string $xml
+   *   The XML data to parse.
+   * @param array $expected
+   *   The expected result.
+   * @param string $message
+   *   The assertion message.
+   */
+  private function assertGetIssued(string $xml, array $expected, string $message): void {
+    $marcCsl = new MarcCslVariables(Record::fromString($xml));
+    $this->assertEquals($expected, $marcCsl->getIssued(), $message);
+  }
+
+  /**
+   * Test the getIssued method.
+   */
+  public function testGetIssued() {
+    $this->assertGetIssued('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Grand Rapids, Mich. ;</subfield>
+    <subfield code="a">Cambridge, U.K. :</subfield>
+    <subfield code="b">W.B. Eerdmans Pub.,</subfield>
+    <subfield code="c">2010.</subfield>
+  </datafield>
+</record>', ["raw" => "2010"], "Real-world example");
+
+    $this->assertGetIssued('<?xml version="1.0" encoding="UTF-8"?>
+<record>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Grand Rapids, MI</subfield>
+    <subfield code="b">Eerdmans</subfield>
+    <subfield code="c">c2016</subfield>
+  </datafield>
+</record>', ["raw" => "c2016"], "Real-world example");
+  }
+
 }
