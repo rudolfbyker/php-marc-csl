@@ -22,5 +22,9 @@
       "RudolfByker\\PhpMarcCsl\\": "src",
       "RudolfByker\\PhpMarcCsl\\Tests\\": "tests"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "build-docs": "vendor/bin/phpdoc"
   }
 }

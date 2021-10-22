@@ -39,7 +39,8 @@ composer require rudolfbyker/php-marc-csl
 ## Running unit tests
 
 ```shell script
-./vendor/bin/phpunit
+composer install
+composer test
 ```
 
 ## Reporting bugs
@@ -56,7 +57,7 @@ If your data is mapped incorrectly, create an issue or PR, and provide:
 
 ```shell script
 composer install
-vendor/bin/phpdoc
+composer build-docs
 ```
 
 Docs committed to the repository should be available on Github pages:
