@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-500596742"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-512601932"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-500596742" class="accordion-body collapse in">
+            <div id="namespace-512601932" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1701076281"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1733775957"></a>
                                 <a href="../namespaces/RudolfByker.html" style="margin-left: 30px; padding-left: 0">RudolfByker</a>
             </div>
-            <div id="namespace-1701076281" class="accordion-body collapse ">
+            <div id="namespace-1733775957" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2041844850"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-884770462"></a>
                                 <a href="../namespaces/RudolfByker.PhpMarcCsl.html" style="margin-left: 30px; padding-left: 0">PhpMarcCsl</a>
             </div>
-            <div id="namespace-2041844850" class="accordion-body collapse ">
+            <div id="namespace-884770462" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-204107652"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1173160666"></a>
                                 <a href="../namespaces/RudolfByker.PhpMarcCsl.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
             </div>
-            <div id="namespace-204107652" class="accordion-body collapse ">
+            <div id="namespace-1173160666" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -3462,8 +3462,14 @@ specific MARC subfields. In general, the main author should be in 100$a$b.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllNamesNotMemoized() : array</pre>
                 <p><em>Get all personal, corporate and uncontrolled names.</em></p>
-                <p>Excludes meeting names and series names.
-Not memoized.</p>
+                <p>Excludes:</p>
+<ul>
+<li>meeting names</li>
+<li>series names</li>
+<li>names in 600 and 610, because they are the subjects of the work, rather
+than contributors.</li>
+</ul>
+<p>Not memoized.</p>
 
                 
                 
@@ -3535,7 +3541,12 @@ Not memoized.</p>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getAllMeetingsNotMemoized() : array</pre>
                 <p><em>Get all meetings.</em></p>
-                <p>Not memoized.</p>
+                <p>Excludes:</p>
+<ul>
+<li>meetings in 611, because they are the subjects of the work, rather
+than contributors.</li>
+</ul>
+<p>Not memoized.</p>
 
                 
                 
@@ -3759,7 +3770,7 @@ Otherwise <code>[]</code>.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on October 22nd, 2021 at 05:36.
+                    on October 22nd, 2021 at 06:07.
                 </section>
             </section>
         </section>
